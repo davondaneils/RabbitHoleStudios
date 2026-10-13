@@ -10,7 +10,7 @@
 
 **Format B — The Human Experiment:** Put the viewer inside a decision, then reveal a researched psychological mechanism and caveats. First: subscription decoy effect.
 
-**Styles under test:** A mature, original, adult spy/crime cel-shaded cartoon (Archer-like vocabulary, not character imitation); B simplified expressive educational cartoon (OverSimplified-like vocabulary).
+**The Setup visual direction (selected 2026-10-13):** Polished 2D TV-animation aesthetic with mature, original adult character designs, clean crisp linework, controlled cel shading, believable expressive faces and cinematic framing. Closely approach the visual sophistication of Archer as a broad aesthetic reference, without copying its characters, distinctive designs or frames. This supersedes the briefly considered lower-complexity/simplified treatment for The Setup. Production repeatability/cost still needs testing. The previously proposed simplified expressive educational style remains a separate comparison hypothesis, not the chosen look for The Setup.
 
 **Voice:** Specific, sharp, sometimes amused. No fake dialogue attributed to real people, generic dark-psychology hype or universal behavioral claims.
 
