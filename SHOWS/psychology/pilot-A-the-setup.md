@@ -1,6 +1,6 @@
 # PSY-A-01 — The Setup: The fake No. 1 restaurant
 
-**Status:** Story premise approved; research, script and footage not approved. **Format:** Short sourced deception reconstruction. Length TBD by beat sheet (consider 45–90 seconds).
+**Status (2026-10-13):** Story premise approved; research and complete treatment developed; **full script candidate is drafted and critically reviewed but NOT founder approved**; imagery/video not approved. **Format:** Self-contained sourced deception reconstruction. Current ~2:10–2:45 candidate earned by the full story arc; duration remains open and can be shortened without abandoning the payoff. See [`../../EPISODES/PSY-A-01/`](../../EPISODES/PSY-A-01/) and [full script](../../EPISODES/PSY-A-01/script.md).
 
 **Audience experience:** Confidence (“I'd spot the scam”) → disbelief → recognition → useful insight. The real threat is fabricated reputation becoming apparently credible.
 
@@ -14,7 +14,7 @@
 
 **Story spine:** Fake reviews and fabricated scarcity → apparent legitimacy → ranking climbs → people seek bookings → reveal the restaurant never functioned as a normal business → why social proof and authority cues worked.
 
-**Asset needs:** Shed, illustrated restaurant listing, phone calls/reservations, staged food photos, 1–2 episode-specific characters, reveal image. **Current story priority:** research and verify the case, complete the audience-value gate, choose the full dramatic arc, and write/edit/approve the **entire episode script** before extracting a 15–30-second section for animation proof. The current Oobah character sheet is a promising but unapproved candidate and can be refined during visual preproduction. A matched simplified Style B experiment remains optional, **not** a prerequisite for Style A. Follow [`STUDIO/editorial-workflow.md`](../../STUDIO/editorial-workflow.md) and [`TEMPLATES/episode-brief.md`](../../TEMPLATES/episode-brief.md).
+**Asset needs (provisional, awaiting script approval):** Shed, illustrated restaurant listing/ranking, phone and booking inquiry, fake food photos, Oobah character and one-night garden dinner setup. **Current priority:** founder reviews the **complete** [candidate script](../../EPISODES/PSY-A-01/script.md), [audience brief](../../EPISODES/PSY-A-01/brief.md) and [editorial notes](../../EPISODES/PSY-A-01/editorial-review.md). Only after explicit script approval should we build a shot plan and 15–30-second production proof. The current Oobah character sheet is promising but unapproved. Style B comparison remains optional. Follow [`STUDIO/editorial-workflow.md`](../../STUDIO/editorial-workflow.md).
 
 **Visual assets and generation rules:** Follow [`the-setup-style-guide.md`](the-setup-style-guide.md), [`the-setup-base-prompt.md`](the-setup-base-prompt.md), [`the-setup-negative-prompt.md`](the-setup-negative-prompt.md) and [`oobah-butler-character-dossier.md`](oobah-butler-character-dossier.md). Selected target: clean black ink outlines, matte flat colors, sparse facial detail and a handful of hard-edged cel shadows; not painterly/high-detail concept art. Off-screen narrator; depict actual people from the story. Oobah character sheet is **not approved yet**.
 
