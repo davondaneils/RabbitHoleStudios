@@ -28,7 +28,7 @@
 - Exact ICP segmentation and buyer persona, willingness to pay, digital product offers, member pricing, and downstream economics.
 - Final show titles/branding, narration voices, **individual approved character sheets**, story lengths, distribution cadence. The Oobah Seedream 5 Lite sheet is a **promising candidate** (“much better”), not yet formally approved.
 - Final production software stack; actual cost per successful short; whether AI-generated video beats controllable illustrated motion for any given format. The successful Oobah candidate used Higgsfield Seedream 5 Lite, but that does **not** lock the tool/model.
-- Proposed **Codex single-user studio workspace MVP** to navigate accounts, research, references, scripts and approvals using this repo as its storage. See `STUDIO/codex-mvp-brief.md`. **PROPOSAL only:** no built app, technology stack or additional subscription approved yet.
+- A **Codex local single-user studio workspace exists** on branch `codex/studio-workspace`. Its GitHub Pages companion now **reads public `main` files live** (and falls back visibly to a static snapshot) but cannot safely write/approve changes in GitHub from its static browser client. `STUDIO/codex-mvp-brief.md` documents the actual implementation. Secure two-way hosted editing and any new paid backend/subscription remain proposals, not approvals.
 - Whether the selected visuals produce different market response. Match creative claims, keep tests small.
 - Whether three accounts remain viable. Kill or concentrate when evidence arrives.
 
