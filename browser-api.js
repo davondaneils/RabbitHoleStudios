@@ -5,6 +5,7 @@ const GITHUB_REPO = 'davondaneils/RabbitHoleStudios';
 const GITHUB_API = 'https://api.github.com/repos/' + GITHUB_REPO;
 const GITHUB_RAW = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/';
 let livePaths = null;
+let liveBlobs = null;
 let liveError = null;
 let liveCheckedAt = null;
 
@@ -21,14 +22,17 @@ async function refreshRepository() {
     if (!response.ok) throw Error('GitHub returned HTTP ' + response.status);
     const tree = await response.json();
     if (!Array.isArray(tree.tree) || tree.truncated) throw Error('GitHub file index is unavailable or incomplete');
-    const paths = new Set(tree.tree.filter(entry => entry.type === 'blob').map(entry => entry.path));
+    const entries = tree.tree.filter(entry => entry.type === 'blob');
+    const paths = new Set(entries.map(entry => entry.path));
     if (!paths.has('README.md')) throw Error('GitHub response does not contain studio files');
     livePaths = paths;
+    liveBlobs = new Map(entries.map(entry => [entry.path, entry.sha]));
     liveError = null;
     liveCheckedAt = new Date().toISOString();
   } catch (error) {
     // Fail visibly to the bundled snapshot; never imply that stale data is live.
     livePaths = null;
+    liveBlobs = null;
     liveError = error.message || 'GitHub could not be reached';
     liveCheckedAt = new Date().toISOString();
   } finally { clearTimeout(timeout); }
@@ -41,7 +45,9 @@ function syncState() {
 }
 async function readGithubFile(path) {
   const safePath = path.split('/').map(encodeURIComponent).join('/');
-  const response = await fetch(GITHUB_RAW + safePath, { cache: 'no-store' });
+  const revision = liveBlobs?.get(path);
+  const url = GITHUB_RAW + safePath + (revision ? '?revision=' + encodeURIComponent(revision) : '');
+  const response = await fetch(url, { cache: 'no-store' });
   if (!response.ok) throw Error('Could not load ' + path + ' from GitHub (HTTP ' + response.status + '). Refresh and try again.');
   return response.text();
 }
@@ -104,7 +110,13 @@ export async function browserAPI(url, data) {
   if(!original && !onGithub(file)) throw Error('Document is not indexed');
   const repoFileExists = onGithub(file);
   const originalExists = livePaths ? repoFileExists : Boolean(original?.exists);
-  const remoteContent = repoFileExists ? await readGithubFile(file) : (originalExists ? original.content : '');
+  let remoteContent;
+  try {
+    remoteContent = repoFileExists ? await readGithubFile(file) : (originalExists ? original.content : '');
+  } catch (error) {
+    // Never silently show yesterday's document as if it were today's GitHub revision.
+    throw Error('Current repository document could not load: ' + error.message);
+  }
   const hasUnsyncedDraft = Object.hasOwn(drafts,file);
   const content = hasUnsyncedDraft ? drafts[file] : remoteContent;
   return { ...original, path:file, exists:originalExists || hasUnsyncedDraft,
