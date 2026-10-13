@@ -38,6 +38,10 @@ These are *aesthetic references*, not requests to reproduce copyrighted characte
 4. Select a baseline method or revise the hypothesis. Do not generate a full 2-styles x 6-formats x 2-episodes factorial matrix. Those combinations would be expensive and uninformative at this stage.
 5. When this workflow works, produce the remaining first episodes and second distinct executions of each format, publishing and measuring actual reactions.
 
+## Editorial dependency (must precede scene-production assets)
+
+Use the [audience-first editorial workflow](editorial-workflow.md) and [episode brief template](../TEMPLATES/episode-brief.md). For every format, connect the story to the ICP's desired feeling, recognition or competence **before drafting**. Complete research, a full causal episode treatment, a full script, a separate editorial critique, a claim audit and founder script approval **before detailed shot generation**. The 15–30-second animation/style test is chosen **from the complete episode** to prove style, continuity and cost—not written as though it were the whole film. Do not start expensive visual production from a throwaway fragment.
+
 ## Episode asset plan
 
 Script and research -> shot/beat list -> rough animatic -> reusable characters/settings/props -> generated stills/camera treatment -> narration/dialogue -> sound -> edit -> caption/QA -> publish -> log. A simple shot may need only one still image plus pan/crop or a match cut. Full generated motion is Tier C, not the default.
