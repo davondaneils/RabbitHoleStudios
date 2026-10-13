@@ -1,4 +1,4 @@
-import { browserAPI } from './browser-api.js';
+import { browserAPI } from './browser-api.js?v=sync1';
 const main = document.querySelector('#main');
 const dialog = document.querySelector('#dialog');
 let workspace, editor = null, routeSequence = 0, noticeTimer;
@@ -9,6 +9,21 @@ const badge = (text, type = '') => `<span class="badge ${type}">${escape(text)}<
 const docLink = (file, label) => `<a class="source-link" href="${href({ episode: 'PSY-A-01', document: file })}">${escape(label || file.split('/').pop().replace('.md', '').replaceAll('-', ' '))}<span aria-hidden="true">→</span></a>`;
 const stamp = date => new Intl.DateTimeFormat('en-CA', { dateStyle: 'medium', timeZone: 'America/Toronto' }).format(new Date(date));
 async function api(url, data) { return browserAPI(url, data); }
+function updateSyncStatus() {
+  const banner = document.querySelector('#repo-status');
+  if (!banner || !workspace?.sync) return;
+  const info = workspace.sync;
+  const local = info.unsyncedDrafts ? ' · ' + info.unsyncedDrafts + ' browser draft(s) not synced to GitHub' : '';
+  if (info.mode === 'live') {
+    banner.textContent = 'Reading current files from GitHub main' + local +
+      '. Browser draft saves are local only; use "Edit on GitHub" for permanent edits.';
+    banner.dataset.mode = 'live';
+  } else {
+    banner.textContent = 'GitHub unavailable — showing an older saved snapshot. Updates may be missing.' +
+      (info.error ? ' (' + info.error + ')' : '') + local;
+    banner.dataset.mode = 'snapshot';
+  }
+}
 
 function notify(text) {
   clearTimeout(noticeTimer); document.querySelector('#notice').textContent = text;
@@ -48,7 +63,15 @@ function draftReason(stage) { return stage.id === 'script' ? 'Confirm the audien
 function documentArticle(doc, title = 'Source document', edit = true) {
   const stage = workspace.detail.artifacts.find(s => s.path === doc.path);
   const locked = draftLocked(stage);
-  return `<section class="document-panel"><header class="document-header"><div><h2>${escape(title)}</h2><span class="file-path">${escape(doc.path)}</span>${locked ? `<p class="caption">${draftReason(stage)}</p>` : ''}</div>${edit && doc.editable ? `<button class="button subtle" data-action="edit-document" data-path="${escape(doc.path)}" ${locked ? 'disabled' : ''}>Edit document</button>` : ''}</header><article class="prose">${reducedHeadings(doc.html)}</article></section>`;
+  const sourceLabel = doc.hasUnsyncedDraft
+    ? 'Unsynced browser draft — it may be older than GitHub. Export local drafts to preserve them.'
+    : doc.source === 'github-main' ? 'Current file from GitHub main'
+    : doc.source === 'snapshot' ? 'Saved snapshot — may be out of date' : 'Local document';
+  const editURL = 'https://github.com/davondaneils/RabbitHoleStudios/edit/main/' +
+    doc.path.split('/').map(encodeURIComponent).join('/');
+  const githubButton = doc.repoFileExists
+    ? `<a class="button subtle" href="${escape(editURL)}" target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a>` : '';
+  return `<section class="document-panel"><header class="document-header"><div><h2>${escape(title)}</h2><span class="file-path">${escape(doc.path)}</span><p class="caption">${escape(sourceLabel)}</p>${locked && !doc.exists ? `<p class="caption">${draftReason(stage)}</p>` : ''}</div><div class="document-actions">${githubButton}${edit && doc.editable ? `<button class="button subtle" data-action="edit-document" data-path="${escape(doc.path)}" ${locked ? 'disabled' : ''}>Edit browser draft</button>` : ''}</div></header><article class="prose">${reducedHeadings(doc.html)}</article></section>`;
 }
 function emptyStage(stage) {
   const locked = draftLocked(stage);
@@ -117,7 +140,7 @@ async function render(focus = false) {
   try {
     const current = await api('/api/workspace');
     if (sequence !== routeSequence) return;
-    workspace = current; nav();
+    workspace = current; updateSyncStatus(); nav();
     if (params.has('document')) {
       const doc = await api('/api/document?path=' + encodeURIComponent(params.get('document')));
       if (sequence !== routeSequence) return;
@@ -133,6 +156,18 @@ async function render(focus = false) {
   }
 }
 async function refresh() { await render(); }
+async function syncNow() {
+  const button = document.querySelector('#refresh-button');
+  if (button) { button.disabled = true; button.textContent = 'Syncing…'; }
+  try {
+    const result = await api('/api/refresh');
+    await refresh();
+    notify(result.mode === 'live' ? 'Latest GitHub files loaded.' :
+      'Live GitHub unavailable. Showing saved snapshot; check the status message.');
+  } finally {
+    if (button) { button.disabled = false; button.textContent = '↻ Sync GitHub'; }
+  }
+}
 async function openEditor(file, stage) {
   const doc = await api('/api/document?path=' + encodeURIComponent(file));
   if (!doc.editable) throw new Error('This source is read-only in the workspace');
@@ -200,6 +235,7 @@ document.addEventListener('click', async event => {
   }
 });
 document.querySelector('#changes-button').addEventListener('click', () => showChanges().catch(error => notify('! ' + error.message)));
+document.querySelector('#refresh-button').addEventListener('click', () => syncNow().catch(error => notify('! ' + error.message)));
 dialog.addEventListener('input', event => {
   if (event.target.id === 'markdown-input') {
     editor.content = event.target.value; editor.dirty = editor.content !== editor.initial || editor.version === null;
