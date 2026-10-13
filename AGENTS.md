@@ -1,6 +1,15 @@
 # Instructions for AI agents and collaborators
 
-**Read in order:** `README.md` -> `STUDIO/decisions.md` -> relevant `SHOWS/<account>/README.md` -> pilot brief -> only the sections of `STUDIO/creative-os.md` relevant to the assignment. **For The Setup character/image work, also read the show style guide, base prompt and negative prompt, and the specific real-person character dossier BEFORE generating.** Those files are in `SHOWS/psychology/`. **Never dump the entire reference archive into a script-generation prompt.**
+**Codex entry point:** When Codex is working inside this checked-out repository, this root `AGENTS.md` is its navigation contract. **Every content task must begin by reading** `README.md`, `STUDIO/decisions.md`, the relevant `SHOWS/<account>/README.md`, the episode brief (if any), and the stage-specific documents below. State which sources were actually read and the current production stage. Never rely on remembered snippets or silently claim a file was consulted. **Do not dump the entire `ARCHIVE/` into prompts.**
+
+**Mandatory routing:**
+- **Episode ideas / commissioning:** read `STUDIO/audience-research.md`, `STUDIO/editorial-workflow.md`, the relevant account brief, and `STUDIO/strategy.md` when buyer fit is relevant. Clear the **Audience Value Gate** *before* drafting a script.
+- **True-story research:** also read `RESEARCH/source-register.md`, verify the originals and log claims/uncertainty.
+- **Story architecture, scripts, edits:** read `STUDIO/creative-os.md`, `STUDIO/editorial-workflow.md`, `TEMPLATES/episode-brief.md`, the account and episode briefs. **Develop the complete story, then a complete script, then a separate editorial review before founder script approval.** A 15–30-second animation proof is an *extract*, not a substitute for a full episode.
+- **Character/image generation:** also read the applicable show style guide, prompts, real-person dossier, and reference asset index; for The Setup these are in `SHOWS/psychology/`.
+- **Production:** read `STUDIO/production.md` and only generate assets for understood story/shot requirements.
+
+**Important:** A source-of-truth link or a previous ChatGPT discussion does *not* prove the file was loaded. Identify gaps; do not silently improvise.
 
 ## Source-of-truth priority
 
