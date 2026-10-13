@@ -34,7 +34,7 @@ These are **six show-format hypotheses with six first-story candidates**. We hav
 - `SHOWS/` - account mini-bibles and first pilot production briefs.
 - `TEMPLATES/` - short working forms; copy only what you actually need.
 - `RESEARCH/source-register.md` - authoritative leads and unverified questions for each pilot.
-- `VISUAL-REFERENCES/` - compressed *concept* images of the six shortlisted looks, not final locked character sheets.
+- `VISUAL-REFERENCES/` - descriptions of the six shortlisted looks. Eight sample JPGs are in the companion starter ZIP and have not yet been uploaded to GitHub; they are not final character sheets.
 - `TRACKING/pilots.csv` - minimal pilot status tracker.
 - `ARCHIVE/creative-os-v1.md` - original long Creative OS. **Historical reference, not current operating instructions.**
 
