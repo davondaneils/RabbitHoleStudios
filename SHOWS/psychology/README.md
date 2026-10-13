@@ -6,7 +6,7 @@
 
 **Do not conflate two potential buyers:** Fans of real-world scams/cognitive biases versus people who pay for negotiation, communication or persuasion training.
 
-**Format A — The Setup:** Reconstruct sourced cases of manufactured trust, fake social proof, authority and deception as dramatic investigations. First case: The Shed at Dulwich.
+**Format A — The Setup:** Reconstruct sourced cases of manufactured trust, fake social proof, authority and deception as dramatic investigations. First case: The Shed at Dulwich. **Required story value:** Each case should be entertaining *and* reward the viewer's desire to see the hidden game, recognize manipulated credibility or become more discerning. Show the mechanism through the real incident rather than adding a tacked-on lesson. Don't presume an amusement-driven viewer will pay for negotiation training. Use [`STUDIO/editorial-workflow.md`](../../STUDIO/editorial-workflow.md) and clear the audience-value gate before writing.
 
 **Format B — The Human Experiment:** Put the viewer inside a decision, then reveal a researched psychological mechanism and caveats. First: subscription decoy effect.
 
