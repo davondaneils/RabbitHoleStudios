@@ -1,0 +1,21 @@
+# Keep heavy local renders and secrets out of the source repository.
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.env
+.env.*
+*.key
+*.pem
+*.mp4
+*.mov
+*.avi
+*.wav
+*.mp3
+*.aep
+*.prproj
+*.drp
+render-cache/
+exports/
+raw-footage/
+node_modules/
