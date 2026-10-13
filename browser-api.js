@@ -69,7 +69,10 @@ function render(text, file) {
  return (snapshot.documents[target] || onGithub(target)) ? `<a href="./?episode=PSY-A-01&document=${encodeURIComponent(target)}">${label}</a>` : label;
  }}}); return engine.parse(text);
 }
-const locked = id => id === 'script' ? !snapshot.workspace.detail.scriptDraftReady : ['storyboard','final-review'].includes(id) && !snapshot.workspace.detail.storyboardReady;
+const canDraftScript = () => snapshot.workspace.detail.scriptDraftReady || ['brief','research','treatment']
+  .every(id => onGithub('EPISODES/PSY-A-01/' + id + '.md'));
+const locked = id => id === 'script' ? !canDraftScript()
+  : ['storyboard','final-review'].includes(id) && !snapshot.workspace.detail.storyboardReady;
 export async function browserAPI(url, data) {
  const request = new URL(url, location.origin), p=request.searchParams, route=request.pathname;
  if(route === '/api/refresh') {
@@ -88,6 +91,7 @@ export async function browserAPI(url, data) {
       if(!onGithub(stage.path)) stage.substantive = false;
     }
   }
+  workspace.detail.scriptDraftReady = canDraftScript();
   if(onGithub('EPISODES/PSY-A-01/script.md')) {
     const pilot = workspace.accounts.find(a => a.id === 'psychology')
       ?.episodes.find(e => e.id === 'PSY-A-01');
