@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="light dark">
+  <title>Rabbit Hole Studios</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to workspace</a>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Studio navigation">
+      <a class="brand" href="/"><span class="monogram" aria-hidden="true">RH</span><span>Rabbit Hole<span class="brand-sub">Studios</span></span></a>
+      <nav id="navigation" aria-label="Accounts"><a href="/">Overview</a></nav>
+      <div class="sidebar-footer"><span class="local-indicator">Local workspace</span><span class="caption">One story at a time.</span></div>
+    </aside>
+    <div class="canvas">
+      <header class="topbar"><span class="topbar-label">Studio / Pilot development</span><button id="changes-button" class="button subtle">Review changes</button></header>
+      <main id="main" tabindex="-1"><div class="loading" aria-busy="true"><h1>Opening the studio</h1><progress aria-label="Loading studio sources"></progress><p>Reading the pilot slate and source files.</p></div></main>
+    </div>
+  </div>
+  <div id="notice" role="status" aria-live="polite"></div>
+  <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+</body>
+</html>

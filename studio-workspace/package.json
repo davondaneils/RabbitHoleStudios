@@ -1,0 +1,9 @@
+{
+  "name": "rabbit-hole-studio-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node open.mjs", "serve": "node server.mjs", "test": "node --test" },
+  "dependencies": { "diff": "8.0.2", "marked": "16.4.2" }
+}

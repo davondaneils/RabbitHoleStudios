@@ -1,0 +1,26 @@
+{
+  "accounts": [
+    { "id": "psychology", "name": "Psychology", "subtitle": "Power & influence", "csvAccount": "Psychology", "path": "SHOWS/psychology/README.md" },
+    { "id": "survival", "name": "Survival", "subtitle": "Preparedness & decisions", "csvAccount": "Survival", "path": "SHOWS/survival/README.md" },
+    { "id": "christian-character", "name": "Christian character", "subtitle": "Virtue & conviction", "csvAccount": "Christian", "path": "SHOWS/christian-character/README.md" }
+  ],
+  "episodes": {
+    "PSY-A-01": "SHOWS/psychology/pilot-A-the-setup.md",
+    "PSY-B-01": "SHOWS/psychology/pilot-B-the-human-experiment.md",
+    "SUR-A-01": "SHOWS/survival/pilot-A-the-decision.md",
+    "SUR-B-01": "SHOWS/survival/pilot-B-the-breaking-point.md",
+    "CHR-A-01": "SHOWS/christian-character/pilot-A-the-fathers-wisdom.md",
+    "CHR-B-01": "SHOWS/christian-character/pilot-B-the-price-of-conviction.md"
+  },
+  "shared": [
+    "AGENTS.md", "README.md", "STUDIO/decisions.md", "STUDIO/audience-research.md",
+    "STUDIO/creative-os.md", "STUDIO/editorial-workflow.md", "STUDIO/production.md",
+    "RESEARCH/source-register.md", "TEMPLATES/episode-brief.md"
+  ],
+  "visuals": [
+    "SHOWS/psychology/the-setup-style-guide.md",
+    "SHOWS/psychology/the-setup-base-prompt.md",
+    "SHOWS/psychology/the-setup-negative-prompt.md",
+    "SHOWS/psychology/oobah-butler-character-dossier.md"
+  ]
+}

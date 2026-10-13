@@ -2,6 +2,16 @@
 
 **Current state: Pilot development.** The company is a hypothesis, not a validated operating media business.
 
+## Open the studio workspace
+
+The local prototype has a three-account overview and the Psychology → The Setup → PSY-A-01 workspace. With Node.js 22 or newer installed, run this from the repository folder on your computer:
+
+```sh
+node studio-workspace/open.mjs
+```
+
+It opens the app in your browser. Mac and Windows launchers are also included: `Open Studio.command` and `Open Studio.bat`. See [workspace instructions](studio-workspace/README.md). The original proposal remains in `STUDIO/codex-mvp-brief.md`; a running cloud-container server is not a live preview in the onboarding chat.
+
 ## Open this file first
 
 **Mission:** Develop a portfolio of repeatable, entertaining faceless shows whose audiences naturally want to buy digital experiences, educational products, or useful tools. Discover which concepts work before systemizing or scaling them.
@@ -18,7 +28,7 @@
 
 These are **six show-format hypotheses with six first-story candidates**. We have not picked winners. Two distinct executions of each format are planned, for **12 published pilot videos total over multiple sessions**. Second stories are TBD. We do **not** automatically produce every visual style x every episode combination. First use short matched style proofs to select economically feasible looks.
 
-**Immediate next action (updated 2026-10-13):** Establish the **audience-value gate and complete story treatment** for `SHOWS/psychology/pilot-A-the-setup.md`, using `STUDIO/editorial-workflow.md`, the original case research and the existing Psychology ICP hypotheses. Then produce an entire scripted episode, independently edit/fact-check it and obtain founder approval **before** extracting a 15–30-second section for a Style A animation/continuity proof. The most promising Oobah sheet was called “much better” but remains **unapproved**; continue visual QA when required. A small Codex workspace to navigate this repository is **proposed, not built**—see `STUDIO/codex-mvp-brief.md`.
+**Immediate next action (updated 2026-10-13):** Establish the **audience-value gate and complete story treatment** for `SHOWS/psychology/pilot-A-the-setup.md`, using `STUDIO/editorial-workflow.md`, the original case research and the existing Psychology ICP hypotheses. Then produce an entire scripted episode, independently edit/fact-check it and obtain founder approval **before** extracting a 15–30-second section for a Style A animation/continuity proof. The most promising Oobah sheet was called “much better” but remains **unapproved**; continue visual QA when required. The first local Codex workspace prototype is implemented in `studio-workspace/`; see its instructions above and the original scope in `STUDIO/codex-mvp-brief.md`.
 
 **Current blockers / unknowns:** Production cost and speed not measured; audience retention not measured; buyer conversion not measured; show concepts and ICPs remain hypotheses; tool stack and paid offers not approved.
 
@@ -29,7 +39,8 @@ These are **six show-format hypotheses with six first-story candidates**. We hav
 - `STUDIO/audience-research.md` - deep motivation, full emotional story, research method.
 - `STUDIO/creative-os.md` - active cross-account creative and scriptwriting principles.
 - `STUDIO/editorial-workflow.md` - **required audience-value, full-story-first research/script/review/approval stages**.
-- `STUDIO/codex-mvp-brief.md` - proposed lightweight Codex studio workspace (not an implemented app).
+- `studio-workspace/README.md` - how to open the implemented local prototype and review its file-backed edits.
+- `STUDIO/codex-mvp-brief.md` - original scope proposal for the lightweight Codex studio workspace.
 - `STUDIO/production.md` - video workflow, style proofs, distribution and QA.
 - `STUDIO/operations.md` - eight-hour sprint and analytics scoreboard.
 - `STUDIO/decisions.md` - current decisions, hypotheses and historical corrections.
