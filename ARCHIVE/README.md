@@ -1,0 +1,3 @@
+# Archived historical material
+
+The original 24-page Creative Operating System is preserved here verbatim for context and optional craft techniques. It contained a previous test lineup (Mystery, Survival, Transformation) that has since been superseded by the current slate. **Do not treat this archive as a source of current decisions.** Current authority is `README.md`, `STUDIO/decisions.md` and active `STUDIO/creative-os.md`.
