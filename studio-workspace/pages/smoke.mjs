@@ -12,7 +12,8 @@ try {
  const base=`http://127.0.0.1:${server.address().port}/RabbitHoleStudios/`;
  await page.goto(base); await page.waitForSelector('.account-panel'); assert.equal(await page.locator('.account-panel').count(),3);
  await page.getByRole('link',{name:'Open episode'}).click(); await page.waitForSelector('#episode-body'); assert.ok(page.url().includes('/RabbitHoleStudios/'));
- await page.getByRole('button',{name:'Create draft'}).first().click(); await page.locator('#markdown-input').fill('# Browser draft\n\nPrivate audience notes saved in this browser.');
+ await page.locator('#repo-status').waitFor();
+ await page.locator('#episode-body [data-path="EPISODES/PSY-A-01/brief.md"]').first().click(); await page.locator('#markdown-input').fill('# Browser draft\n\nPrivate audience notes saved in this browser.');
  await page.getByRole('button',{name:'Review diff'}).click(); await page.getByRole('button',{name:'Save reviewed changes'}).click();
  await page.reload(); await page.waitForSelector('#episode-body'); assert.ok((await page.locator('#episode-body').innerText()).includes('Private audience notes'));
  for(const view of ['research','script','references','approvals']) { await page.goto(base+'?episode=PSY-A-01&view='+view); await page.waitForSelector('#episode-body > *'); }

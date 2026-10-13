@@ -1,6 +1,56 @@
 import { Marked } from './marked.js';
 import { createTwoFilesPatch } from './diff/index.js';
 const snapshot = await fetch('./snapshot.json').then(r => { if(!r.ok) throw Error('Repository snapshot could not load'); return r.json(); });
+const GITHUB_REPO = 'davondaneils/RabbitHoleStudios';
+const GITHUB_API = 'https://api.github.com/repos/' + GITHUB_REPO;
+const GITHUB_RAW = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/';
+let livePaths = null;
+let liveBlobs = null;
+let liveError = null;
+let liveCheckedAt = null;
+
+// This site is static. Public GitHub reads are safe without credentials; never
+// put a GitHub write token in JavaScript delivered to browser visitors.
+async function refreshRepository() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch(GITHUB_API + '/git/trees/main?recursive=1', {
+      signal: controller.signal, cache: 'no-store',
+      headers: { Accept: 'application/vnd.github+json' }
+    });
+    if (!response.ok) throw Error('GitHub returned HTTP ' + response.status);
+    const tree = await response.json();
+    if (!Array.isArray(tree.tree) || tree.truncated) throw Error('GitHub file index is unavailable or incomplete');
+    const entries = tree.tree.filter(entry => entry.type === 'blob');
+    const paths = new Set(entries.map(entry => entry.path));
+    if (!paths.has('README.md')) throw Error('GitHub response does not contain studio files');
+    livePaths = paths;
+    liveBlobs = new Map(entries.map(entry => [entry.path, entry.sha]));
+    liveError = null;
+    liveCheckedAt = new Date().toISOString();
+  } catch (error) {
+    // Fail visibly to the bundled snapshot; never imply that stale data is live.
+    livePaths = null;
+    liveBlobs = null;
+    liveError = error.message || 'GitHub could not be reached';
+    liveCheckedAt = new Date().toISOString();
+  } finally { clearTimeout(timeout); }
+}
+await refreshRepository();
+function onGithub(path) { return !!livePaths && livePaths.has(path); }
+function syncState() {
+  return { mode: livePaths ? 'live' : 'snapshot', branch: 'main',
+    checkedAt: liveCheckedAt, error: liveError, unsyncedDrafts: Object.keys(drafts).length };
+}
+async function readGithubFile(path) {
+  const safePath = path.split('/').map(encodeURIComponent).join('/');
+  const revision = liveBlobs?.get(path);
+  const url = GITHUB_RAW + safePath + (revision ? '?revision=' + encodeURIComponent(revision) : '');
+  const response = await fetch(url, { cache: 'no-store' });
+  if (!response.ok) throw Error('Could not load ' + path + ' from GitHub (HTTP ' + response.status + '). Refresh and try again.');
+  return response.text();
+}
 const key = 'rabbit-hole-studio:pages:drafts:v1';
 let drafts;
 try { drafts = JSON.parse(localStorage.getItem(key) || '{}'); } catch { drafts = {}; }
@@ -16,22 +66,68 @@ function render(text, file) {
  const parts = (file.split('/').slice(0,-1).join('/') + '/' + href.split('#')[0]).split('/'), normalized=[];
  for(const part of parts) { if(part==='..') normalized.pop(); else if(part && part!=='.') normalized.push(part); }
  const target = snapshot.documents[href] ? href : normalized.join('/');
- return snapshot.documents[target] ? `<a href="./?episode=PSY-A-01&document=${encodeURIComponent(target)}">${label}</a>` : label;
+ return (snapshot.documents[target] || onGithub(target)) ? `<a href="./?episode=PSY-A-01&document=${encodeURIComponent(target)}">${label}</a>` : label;
  }}}); return engine.parse(text);
 }
-const locked = id => id === 'script' ? !snapshot.workspace.detail.scriptDraftReady : ['storyboard','final-review'].includes(id) && !snapshot.workspace.detail.storyboardReady;
+const canDraftScript = () => snapshot.workspace.detail.scriptDraftReady || ['brief','research','treatment']
+  .every(id => onGithub('EPISODES/PSY-A-01/' + id + '.md'));
+const locked = id => id === 'script' ? !canDraftScript()
+  : ['storyboard','final-review'].includes(id) && !snapshot.workspace.detail.storyboardReady;
 export async function browserAPI(url, data) {
  const request = new URL(url, location.origin), p=request.searchParams, route=request.pathname;
+ if(route === '/api/refresh') {
+  await refreshRepository();
+  return syncState();
+ }
  if(route === '/api/workspace') {
   const workspace = structuredClone(snapshot.workspace);
-  for(const stage of workspace.detail.artifacts) if(Object.hasOwn(drafts,stage.path)) { stage.exists=true; stage.substantive=false; }
-  // Browser drafts are unreviewed; they never advance official editorial gates.
+  for(const stage of workspace.detail.artifacts) {
+    if(livePaths) {
+      stage.exists = onGithub(stage.path);
+      stage.substantive = stage.exists; // A file exists on GitHub, but is NOT approved.
+    }
+    if(Object.hasOwn(drafts,stage.path)) {
+      stage.exists = true;
+      if(!onGithub(stage.path)) stage.substantive = false;
+    }
+  }
+  workspace.detail.scriptDraftReady = canDraftScript();
+  if(onGithub('EPISODES/PSY-A-01/script.md')) {
+    const pilot = workspace.accounts.find(a => a.id === 'psychology')
+      ?.episodes.find(e => e.id === 'PSY-A-01');
+    if(pilot) {
+      pilot.stage = 'Script candidate';
+      pilot.nextAction = 'Founder review of full script (not approved)';
+      pilot.documentedStatus = 'script-candidate';
+    }
+    workspace.detail.currentStage = 'Script review';
+    // Neither scriptReady nor any approval state is advanced automatically.
+  }
+  workspace.sync = syncState();
   return workspace;
  }
  if(route === '/api/document') {
-  const file=p.get('path'), original=snapshot.documents[file]; if(!original) throw Error('Document is not indexed');
-  if(!Object.hasOwn(drafts,file)) return {...original,html: original.html.replaceAll('href="/?','href="./?')};
-  const content=drafts[file]; return {...original,exists:true,content,html:render(content,file),version:await version(content)};
+  const file = p.get('path');
+  if(!file || file.includes('..') || file.startsWith('/') || file.includes('\\'))
+    throw Error('Invalid document path');
+  const original = snapshot.documents[file];
+  if(!original && !onGithub(file)) throw Error('Document is not indexed');
+  const repoFileExists = onGithub(file);
+  const originalExists = livePaths ? repoFileExists : Boolean(original?.exists);
+  let remoteContent;
+  try {
+    remoteContent = repoFileExists ? await readGithubFile(file) : (originalExists ? original.content : '');
+  } catch (error) {
+    // Never silently show yesterday's document as if it were today's GitHub revision.
+    throw Error('Current repository document could not load: ' + error.message);
+  }
+  const hasUnsyncedDraft = Object.hasOwn(drafts,file);
+  const content = hasUnsyncedDraft ? drafts[file] : remoteContent;
+  return { ...original, path:file, exists:originalExists || hasUnsyncedDraft,
+    editable:original?.editable ?? false, content, html:render(content,file),
+    version:await version(originalExists || hasUnsyncedDraft ? content : null),
+    repoFileExists, hasUnsyncedDraft,
+    source:hasUnsyncedDraft ? 'browser-draft' : repoFileExists ? 'github-main' : 'snapshot' };
  }
  if(route === '/api/template' || route === '/api/packet') {
   const id=p.get('stage'); if(locked(id)) throw Error('The repository approval gate must be cleared in the local workspace.');
@@ -40,9 +136,9 @@ export async function browserAPI(url, data) {
  if(route === '/api/preview') {
   const original=snapshot.documents[data.path]; if(!original?.editable || typeof data.content !== 'string') throw Error('This document is read-only');
   const stage=snapshot.workspace.detail.artifacts.find(s=>s.path===data.path); if(locked(stage?.id)) throw Error('The repository approval gate is not cleared.');
-  const current=Object.hasOwn(drafts,data.path) ? drafts[data.path] : original.exists ? original.content : null;
-  if(await version(current)!==data.version) throw Error('Draft changed. Reopen it before editing.');
-  const token=crypto.randomUUID(); previews.set(token,{...data}); return {token,diff:createTwoFilesPatch(data.path,data.path,current||'',data.content)};
+  const current=await browserAPI('/api/document?path='+encodeURIComponent(data.path));
+  if(current.version!==data.version) throw Error('File changed on GitHub or in this browser. Reopen it before editing.');
+  const token=crypto.randomUUID(); previews.set(token,{...data}); return {token,diff:createTwoFilesPatch(data.path,data.path,current.content||'',data.content)};
  }
  if(route === '/api/save') {
   const preview=previews.get(data.token); if(!preview) throw Error('Review the diff first');

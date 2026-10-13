@@ -52,3 +52,7 @@ The UI uses design-kb's foundations, dashboard navigation, form states and neutr
 This slice does not build the remaining episode workflows, upload assets, provide a video editor, verify external sources, measure audience response or submit generation jobs. Remote reference links are not proof of licensing or availability. Source documents retain their original history, including the dated MVP proposal; current implementation details live here.
 
 The Node API restricts document paths, checks symlinks, limits request bodies, requires a local request token for writes and rejects foreign hosts/origins. This provides protection for a local single-user tool, not multi-user authentication. Do not run two instances that write to the same checkout.
+
+## Phone-friendly GitHub Pages companion (read-only repository access)
+
+The published GitHub Pages client at https://davondaneils.github.io/RabbitHoleStudios/ reads current public `main` files through GitHub on page load or **Sync GitHub**. It can show script and research files created elsewhere without rebuilding the website. Unlike this **local Node workspace**, the Pages browser client saves only **unsynced browser drafts**; authenticated repository edits must use its **Edit on GitHub** link, and official approvals still require the local workflow. Source lives in `studio-workspace/pages/site/` and `studio-workspace/pages/browser-api.js`; build instructions are in `studio-workspace/pages/README.md`.
