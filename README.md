@@ -18,7 +18,7 @@
 
 These are **six show-format hypotheses with six first-story candidates**. We have not picked winners. Two distinct executions of each format are planned, for **12 published pilot videos total over multiple sessions**. Second stories are TBD. We do **not** automatically produce every visual style x every episode combination. First use short matched style proofs to select economically feasible looks.
 
-**Immediate next action:** Create the first production proof for `SHOWS/psychology/pilot-A-the-setup.md`: verify source claims, make an episode beat sheet, then animate the *same short approved scene* in the two Psychology visual directions. Compare quality, actual founder time, generation cost and continuity before making a full pilot batch.
+**Immediate next action (updated 2026-10-13):** Finish a faithful Oobah Butler character sheet for `SHOWS/psychology/pilot-A-the-setup.md` in the **selected** polished-but-sparse adult 2D TV cel-animation style. The most promising current generated sheet was called “much better” but is **not yet final-approved**. See the linked style guide, prompts and Oobah dossier under `SHOWS/psychology/`. Then verify case chronology, make an episode beat sheet and test a 15–30-second Style A scene for continuity, real production time and cost. Comparing a Style B version remains optional, not a requirement before proceeding.
 
 **Current blockers / unknowns:** Production cost and speed not measured; audience retention not measured; buyer conversion not measured; show concepts and ICPs remain hypotheses; tool stack and paid offers not approved.
 
@@ -31,10 +31,10 @@ These are **six show-format hypotheses with six first-story candidates**. We hav
 - `STUDIO/production.md` - video workflow, style proofs, distribution and QA.
 - `STUDIO/operations.md` - eight-hour sprint and analytics scoreboard.
 - `STUDIO/decisions.md` - current decisions, hypotheses and historical corrections.
-- `SHOWS/` - account mini-bibles and first pilot production briefs.
+- `SHOWS/` - account mini-bibles, pilot briefs and **The Setup's reusable character style pack**: `SHOWS/psychology/the-setup-style-guide.md`, `the-setup-base-prompt.md`, `the-setup-negative-prompt.md`, `oobah-butler-character-dossier.md`.
 - `TEMPLATES/` - short working forms; copy only what you actually need.
 - `RESEARCH/source-register.md` - authoritative leads and unverified questions for each pilot.
-- `VISUAL-REFERENCES/` - descriptions of the six shortlisted looks. Eight sample JPGs are in the companion starter ZIP and have not yet been uploaded to GitHub; they are not final character sheets.
+- `VISUAL-REFERENCES/` - descriptions of shortlisted looks; initial sample JPGs were not uploaded to GitHub. The **actual The Setup TV-style frame URLs, Higgsfield media IDs and latest character-sheet candidate** are indexed in `SHOWS/psychology/the-setup-style-guide.md` and the Oobah dossier. These are links, not image binaries in GitHub.
 - `TRACKING/pilots.csv` - minimal pilot status tracker.
 - `ARCHIVE/creative-os-v1.md` - original long Creative OS. **Historical reference, not current operating instructions.**
 
