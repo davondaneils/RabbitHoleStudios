@@ -17,11 +17,18 @@
 - **Identity separation:** supplied TV screenshots determine **style only**, while real photographic reference(s), preferably relevant to the episode's time period, determine each person's **actual face and haircut**. The anthology has a distinct off-screen narrator, no recurring visible host/animal mascot, and uses the case-specific real people.
 - **Repeatability:** the required style guide, base prompt, negative prompt, character dossiers and QA/approval states are maintained in `SHOWS/psychology/`. GitHub is the source of truth; Higgsfield is a generation workspace. Do not silently promote a new character candidate or model choice to approved status.
 
+## LOCKED - 2026-10-13 (Editorial workflow correction)
+
+- **Audience-value gate before scripting:** an episode must serve its account's *particular audience desire*, with a defensible emotional/entertainment reward and earned insight/recognition/agency. An interesting anecdote is insufficient. Separate viewer enjoyment from unvalidated buyer demand; never turn a psychology interpretation into a universal fact.
+- **Full-story-first:** research and source-register work → distinct story approaches and one complete causal treatment → complete draft → independent critical edit → fact audit and founder approval → shot plan and **15–30-second animation proof extracted from the episode**. Do not treat a teaser/opening fragment as a complete published video. Use `STUDIO/editorial-workflow.md`.
+- **Codex instruction routing:** root `AGENTS.md` must map stages to actual active documents, and Codex tasks should identify which sources they read. This improves reliability when operating inside the repo; it is not a guarantee that ordinary chats will automatically consult GitHub.
+
 ## HYPOTHESES / NOT LOCKED
 
 - Exact ICP segmentation and buyer persona, willingness to pay, digital product offers, member pricing, and downstream economics.
 - Final show titles/branding, narration voices, **individual approved character sheets**, story lengths, distribution cadence. The Oobah Seedream 5 Lite sheet is a **promising candidate** (“much better”), not yet formally approved.
 - Final production software stack; actual cost per successful short; whether AI-generated video beats controllable illustrated motion for any given format. The successful Oobah candidate used Higgsfield Seedream 5 Lite, but that does **not** lock the tool/model.
+- Proposed **Codex single-user studio workspace MVP** to navigate accounts, research, references, scripts and approvals using this repo as its storage. See `STUDIO/codex-mvp-brief.md`. **PROPOSAL only:** no built app, technology stack or additional subscription approved yet.
 - Whether the selected visuals produce different market response. Match creative claims, keep tests small.
 - Whether three accounts remain viable. Kill or concentrate when evidence arrives.
 
