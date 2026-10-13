@@ -18,7 +18,7 @@
 
 These are **six show-format hypotheses with six first-story candidates**. We have not picked winners. Two distinct executions of each format are planned, for **12 published pilot videos total over multiple sessions**. Second stories are TBD. We do **not** automatically produce every visual style x every episode combination. First use short matched style proofs to select economically feasible looks.
 
-**Immediate next action (updated 2026-10-13):** Establish the **audience-value gate and complete story treatment** for `SHOWS/psychology/pilot-A-the-setup.md`, using `STUDIO/editorial-workflow.md`, the original case research and the existing Psychology ICP hypotheses. Then produce an entire scripted episode, independently edit/fact-check it and obtain founder approval **before** extracting a 15–30-second section for a Style A animation/continuity proof. The most promising Oobah sheet was called “much better” but remains **unapproved**; continue visual QA when required. A small Codex workspace to navigate this repository is **proposed, not built**—see `STUDIO/codex-mvp-brief.md`.
+**Immediate next action (updated 2026-10-13):** **Founder reviews the complete PSY-A-01 script candidate** at [`EPISODES/PSY-A-01/script.md`](EPISODES/PSY-A-01/script.md). The episode has an audience-value brief, sourced research, three story angles, a complete draft, a separate critical editorial pass and claim audit; **none constitute founder approval**. If the script is approved after any requested revisions, storyboard and extract a 15–30-second Style A animation/continuity proof. The current Oobah sheet is also only a **candidate**. A deployed GitHub Pages browser demo reads a **stale static snapshot** from `gh-pages`; repository changes on `main` are not automatically displayed there. The app must be rebuilt to show new episode artifacts, or browse them through GitHub links.
 
 **Current blockers / unknowns:** Production cost and speed not measured; audience retention not measured; buyer conversion not measured; show concepts and ICPs remain hypotheses; tool stack and paid offers not approved.
 
@@ -33,6 +33,7 @@ These are **six show-format hypotheses with six first-story candidates**. We hav
 - `STUDIO/production.md` - video workflow, style proofs, distribution and QA.
 - `STUDIO/operations.md` - eight-hour sprint and analytics scoreboard.
 - `STUDIO/decisions.md` - current decisions, hypotheses and historical corrections.
+- `EPISODES/PSY-A-01/` - complete first editor-workflow test: ICP brief, research, full treatment, full script candidate, critique, and claim audit; founder approval pending.
 - `SHOWS/` - account mini-bibles, pilot briefs and **The Setup's reusable character style pack**: `SHOWS/psychology/the-setup-style-guide.md`, `the-setup-base-prompt.md`, `the-setup-negative-prompt.md`, `oobah-butler-character-dossier.md`.
 - `TEMPLATES/` - short working forms including `episode-brief.md` with a mandatory account/ICP audience-value gate.
 - `RESEARCH/source-register.md` - authoritative leads and unverified questions for each pilot.
