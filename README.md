@@ -4,6 +4,8 @@
 
 ## Open the studio workspace
 
+A no-install browser demo is prepared for GitHub Pages. See [Pages setup and browser draft behavior](studio-workspace/pages/README.md). The browser demo keeps drafts in your browser; the local workspace below saves reviewed files into this repository.
+
 The local prototype has a three-account overview and the Psychology → The Setup → PSY-A-01 workspace. With Node.js 22 or newer installed, run this from the repository folder on your computer:
 
 ```sh
