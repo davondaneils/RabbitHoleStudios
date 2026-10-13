@@ -1,6 +1,6 @@
 # Instructions for AI agents and collaborators
 
-**Read in order:** `README.md` -> `STUDIO/decisions.md` -> relevant `SHOWS/<account>/README.md` -> pilot brief -> only the sections of `STUDIO/creative-os.md` relevant to the assignment. **Never dump the entire reference archive into a script-generation prompt.**
+**Read in order:** `README.md` -> `STUDIO/decisions.md` -> relevant `SHOWS/<account>/README.md` -> pilot brief -> only the sections of `STUDIO/creative-os.md` relevant to the assignment. **For The Setup character/image work, also read the show style guide, base prompt and negative prompt, and the specific real-person character dossier BEFORE generating.** Those files are in `SHOWS/psychology/`. **Never dump the entire reference archive into a script-generation prompt.**
 
 ## Source-of-truth priority
 
@@ -32,6 +32,10 @@ For a pilot script, deliver: `1-sentence promise`, `episode beat sheet`, `30-90s
 For research, deliver: verified source links, supported facts, contested/unknown facts, 2-3 credible angle options, ICP-to-offer relationship, and reason to test or reject.
 
 For production, deliver the minimum viable editable asset plan, work-time estimate labeled as assumption until measured, budget guardrail, and measurable acceptance criteria.
+
+## The Setup visual generation rule
+
+For every character in **The Setup**, use the approved visual direction and reference-driven workflow recorded in [`SHOWS/psychology/the-setup-style-guide.md`](SHOWS/psychology/the-setup-style-guide.md), [`the-setup-base-prompt.md`](SHOWS/psychology/the-setup-base-prompt.md) and [`the-setup-negative-prompt.md`](SHOWS/psychology/the-setup-negative-prompt.md). For Oobah, see [`oobah-butler-character-dossier.md`](SHOWS/psychology/oobah-butler-character-dossier.md); create a similarly brief dossier for each new identifiable real person. Style screenshots are **style-only**; actual photos are **identity-only**. Do not infer a face from the TV show, recycle rejected sheets, create a visible narrator, or declare a candidate approved because it rendered successfully. Compare actual results to reference images; reject excessive detailing, poor likeness or turnarounds with inconsistent faces. Save exact job IDs/reference links and user approval status. GitHub is the operating memory; Higgsfield is a generation tool, not the source of truth. Avoid costly retries without changing the failure mode.
 
 ## Operating principles
 
