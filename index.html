@@ -7,7 +7,7 @@
   <meta name="color-scheme" content="light dark">
   <title>Rabbit Hole Studios</title>
   <link rel="stylesheet" href="./styles.css">
-  <script src="./app.js" type="module"></script>
+  <script src="./app.js?v=sync1" type="module"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to workspace</a>
@@ -18,8 +18,8 @@
       <div class="sidebar-footer"><span class="local-indicator">Browser demo</span><span class="caption">Drafts stay in this browser.</span></div>
     </aside>
     <div class="canvas">
-      <header class="topbar"><span class="topbar-label">Studio / Pilot development</span><button id="changes-button" class="button subtle">Export drafts</button></header>
-      <p class="caption browser-note">Repository snapshot · Drafts save in this browser; export to keep them. Approval states belong to the repository.</p><main id="main" tabindex="-1"><div class="loading" aria-busy="true"><h1>Opening the studio</h1><progress aria-label="Loading studio sources"></progress><p>Reading the pilot slate and source files.</p></div></main>
+      <header class="topbar"><span class="topbar-label">Studio / Pilot development</span><div class="topbar-actions"><button id="refresh-button" class="button subtle" type="button">↻ Sync GitHub</button><button id="changes-button" class="button subtle" type="button">Export drafts</button></div></header>
+      <p id="repo-status" class="caption browser-note" role="status" aria-live="polite">Checking the current GitHub repository…</p><main id="main" tabindex="-1"><div class="loading" aria-busy="true"><h1>Opening the studio</h1><progress aria-label="Loading studio sources"></progress><p>Reading the pilot slate and source files.</p></div></main>
     </div>
   </div>
   <div id="notice" role="status" aria-live="polite"></div>
