@@ -2,6 +2,12 @@
 
 **This is a palette, not a checklist.** The original 50-section guide lives in `ARCHIVE/creative-os-v1.md`, but this shorter file is the active writing standard.
 
+## Audience value before the spine (mandatory)
+
+For each episode, first read the relevant account brief and `STUDIO/audience-research.md`, then complete the [Audience Value Gate and editorial stages](editorial-workflow.md). Establish **which specific viewer desire this story serves, the entertaining/emotional payoff, the useful insight or recognition, and any unvalidated buyer connection**. The psychology/insight should emerge from documented events—not be bolted on as a moral in the last sentence. After that, apply the writing craft palette below. A great standalone oddity is not necessarily a great episode for the chosen account.
+
+**Full episode first:** develop a complete cause-and-effect treatment and script before extracting 15–30 seconds for animation testing. Distinguish opening fragments from full episodes. Make the full script undergo a separate skeptical editorial pass and founder approval before storyboarding.
+
 ## Four core writing instructions
 
 1. **One dramatic spine:** Make one meaningful point, promise or emotional experience. A hook raises an expectation the video actually repays.
