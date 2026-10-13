@@ -1,5 +1,13 @@
-# Codex studio workspace MVP — PROPOSAL, not approved implementation
-**Proposed 2026-10-13.** Motivation: manage multiple accounts, stories, ICPs, research sources, scripts, style assets, generations and editorial stages without relying on chat memory or manually recreating prompts.
+# Codex studio workspace MVP — initial design brief and implementation status
+**Originally proposed 2026-10-13; a limited MVP now exists.** Motivation: manage multiple accounts, stories, ICPs, research sources, scripts, style assets, generations and editorial stages without relying on chat memory or manually recreating prompts.
+
+## Current implementation status — 2026-10-13
+
+- **Source:** `codex/studio-workspace` branch, directory [`studio-workspace/`](https://github.com/davondaneils/RabbitHoleStudios/tree/codex/studio-workspace/studio-workspace). Local Node single-user editor supports repository-backed files and approval checks. Its local server is not publicly hosted.
+- **Phone app:** [GitHub Pages deployment](https://davondaneils.github.io/RabbitHoleStudios/) on `gh-pages`. Its browser client now fetches the latest **public** `main` Markdown files and discovers new episode artifacts without a rebuild. Explicit **Sync GitHub** button and clear stale/offline fallback status. Pages-specific source is preserved in `studio-workspace/pages/site/` and the live-read adapter in `studio-workspace/pages/browser-api.js`; see [`pages/README.md`](https://github.com/davondaneils/RabbitHoleStudios/blob/codex/studio-workspace/studio-workspace/pages/README.md).
+- **Real episode test:** `EPISODES/PSY-A-01/` on `main` includes audience-value brief, sourcing, full story treatment, complete script candidate, editorial review and source audit. The source files are NOT founder approved and Pages does not mark them so.
+- **Still missing for full two-way mobile workflow:** secure authenticated repository writes and version-bound founder approvals from within the Pages interface. Browser edits currently remain local drafts; **Edit on GitHub** opens GitHub's own authenticated editor to avoid exposing access tokens in a public static app. This is **not yet** an end-to-end automated production engine.
+- **Next software task:** decide whether an authenticated backend is worth the complexity versus the current GitHub-hosted edit links. Don't put GitHub access tokens/secrets in static JavaScript. Note the repository is currently **public**; private content would require authenticated reads too.
 
 ## Working principle
 Build **on this existing repo** (`RabbitHoleStudios`), not a second knowledge base. Git-tracked Markdown/source files remain the long-term record; Codex can work inside the checked-out repository and load root `AGENTS.md` automatically in supported Codex environments. This improves instruction routing but **does not guarantee** that deeper documents are consulted without clear routing and verification. GitHub is the truth; the UI is a view/editor of it, not a competing database.
