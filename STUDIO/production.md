@@ -22,10 +22,18 @@ Christian Character:
 
 These are *aesthetic references*, not requests to reproduce copyrighted characters or signature frames. `VISUAL-REFERENCES/` contains compressed original concept images for discussion; they are not final assets or consistent character sheets.
 
+## Selected The Setup generation method (working practice, 2026-10-13)
+
+- **GitHub = operating source of truth**, Higgsfield = one available live generation workspace. Tool and model choice are not a permanent lock.
+- For **The Setup**, always follow [`SHOWS/psychology/the-setup-style-guide.md`](../SHOWS/psychology/the-setup-style-guide.md), [`the-setup-base-prompt.md`](../SHOWS/psychology/the-setup-base-prompt.md), [`the-setup-negative-prompt.md`](../SHOWS/psychology/the-setup-negative-prompt.md) and character-specific dossiers.
+- **Separate references:** user-supplied animated TV frame screenshots specify only visual grammar; photographs of the **actual real person** specify identity. Every new character must have real identity references and the same reusable style inputs. No generic recurring presenter or invented facial archetypes.
+- **Real result over aspirational prompt:** visually inspect a candidate next to source frames before acceptance. Favor sparse black contours, flat fills, limited angular cel-shadows and likeness. Don't turn “premium” into over-rendered concept art. Record tool/model, exact references/job ID, founder time, credit cost and **approved vs candidate** status.
+- Current Oobah candidate from Higgsfield Seedream 5 Lite improved substantially with two real-person photo references. It was only rated **“much better”**, not accepted as final. See dossier. Do not assume one successful result proves consistency across scenes.
+
 ## Bake-off before full production
 
-1. Approve a **single** 15-30-second scene from `The Setup`.
-2. Make two matched versions in Psychology styles A and B using the same script/audio/timing. Target a rough but credible production proof, not final-season polish.
+1. **First lock character-image quality within chosen The Setup Style A**, then approve a **single** 15–30-second scene for continuity and efficiency testing.
+2. Make the chosen Style A scene as a rough but credible production proof. A matched Psychology Style B version is an **optional subsequent comparison**, not a prerequisite for creating/approving the Style A characters.
 3. Time total active founder minutes (single timer), capture tool credit cost, note number of rerolls, and review creative appeal / emotional clarity / continuity / repeatability.
 4. Select a baseline method or revise the hypothesis. Do not generate a full 2-styles x 6-formats x 2-episodes factorial matrix. Those combinations would be expensive and uninformative at this stage.
 5. When this workflow works, produce the remaining first episodes and second distinct executions of each format, publishing and measuring actual reactions.
