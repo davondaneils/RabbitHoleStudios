@@ -17,7 +17,7 @@ test('overall and paragraph feedback persist, remain version-aware, and use a sa
   const render = async (revision='revision-one', source='github-main', id='PSY-A-01') => {
     dialog = null;
     await scriptReview.render({ body, episode:{id,story:'Test story'},
-      readDocument: async path => ({path,exists:true, content:'## Full narration\nFirst paragraph.\n\nSecond paragraph.',githubRevision:revision,source}),
+      readDocument: async path => ({path,exists:true, content:'**Status:** SCRIPT_CANDIDATE v2\n## Full narration\nFirst paragraph.\n\nSecond paragraph.',githubRevision:revision,source}),
       showDialog: (title,html) => { dialog={title,html}; }, notify: text => {notice=text;} });
   };
   const click = (action, extra={}) => scriptReview.click({dataset:{action,...extra}});
@@ -26,6 +26,9 @@ test('overall and paragraph feedback persist, remain version-aware, and use a sa
   const request = () => new URL(dialog.html.match(/href="([^"]+)"/)[1].replaceAll('&amp;', '&'));
   await render();
   assert.match(body.innerHTML, /data-action="rv-overall"/);
+  assert.match(body.innerHTML, /Candidate V2/);
+  assert.match(body.innerHTML, /V0 → V2/);
+  assert.doesNotMatch(body.innerHTML, /this V1 candidate|critique of V0/);
   await click('rv-request'); assert.equal(dialog,null); assert.match(notice,/current script/);
   await click('rv-overall'); assert.match(dialog.html,/data-kind="overall"/);
   assert.throws(() => scriptReview.submit(form('  ')), /between 2/);
@@ -36,6 +39,7 @@ test('overall and paragraph feedback persist, remain version-aware, and use a sa
   assert.match(nodes.get('#rv-note-list').innerHTML,/&lt;script&gt;/);
   assert.doesNotMatch(nodes.get('#rv-note-list').innerHTML,/Find in script|Paragraph NaN/);
   await click('rv-request');
+  assert.match(request().searchParams.get('title'), /\(V2\)/);
   assert.match(request().searchParams.get('body'),/1\. Overall feedback\nRethink the pacing/);
   assert.match(request().searchParams.get('body'),/NOT APPROVED/);
   assert.match(dialog.html,/opening it does not send anything/);

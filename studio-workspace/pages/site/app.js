@@ -1,5 +1,5 @@
 import { browserAPI } from './browser-api.js?v=live3-20261014';
-import { scriptReview } from './script-review.js?v=review2-20261014';
+import { scriptReview } from './script-review.js?v=review3-20261014';
 const main = document.querySelector('#main');
 const dialog = document.querySelector('#dialog');
 let workspace, editor = null, routeSequence = 0, noticeTimer;

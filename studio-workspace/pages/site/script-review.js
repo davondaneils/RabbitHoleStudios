@@ -4,6 +4,7 @@ export const scriptReview = (function createScriptReview() {
   const escape = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const rich = s => escape(s).replace(/\*([^*]+)\*/g, "<em>$1</em>");
   const rev = doc => doc.githubRevision || doc.version || "unknown";
+  const candidateVersion = doc => (doc.content.match(/SCRIPT_CANDIDATE\s+v(\d+)/)||[])[1]||"?";
   const sourceURL = p => `https://github.com/${REPO}/blob/main/` + p.split("/").map(encodeURIComponent).join("/");
   const safeDate = date => new Date(date).toLocaleDateString("en-CA", {dateStyle:"medium"});
   function paragraphs(raw) {
@@ -116,12 +117,12 @@ export const scriptReview = (function createScriptReview() {
       return;
     }
     state={body,episode,base,script,edit,audit,older,items,showDialog,notify,request:""};
-    const version=(script.content.match(/SCRIPT_CANDIDATE\s+v(\d+)/)||[])[1]||"?";
+    const version=candidateVersion(script);
     const title=(script.content.match(/^#.*?[“"]([^”"]+)[”"]/m)||[])[1]||episode.story;
     const source=script.source==="github-main"?"Live GitHub file":script.source==="browser-draft"?"Unsynced browser draft":"Offline snapshot (may be stale)";
     const printed=items.map((p,i)=>`<section class="rv-paragraph" id="rv-para-${i}">${beat(p,i)?`<h3>${escape(beat(p,i))}</h3>`:""}<div class="rv-line"><span>${String(i+1).padStart(2,"0")}</span><p>${rich(p)}</p></div><button type="button" data-action="rv-add" data-paragraph="${i}">+ Add note</button><div id="rv-note-inline-${i}"></div></section>`).join("");
     body.innerHTML=`<div class="review-workspace">
-      <header class="rv-header"><div><span class="rv-eyebrow">SCRIPT REVIEW · ${escape(episode.id)}</span><h2>${escape(title)}</h2><p>Candidate V${escape(version)} · Not approved · ~2:10–2:45 estimated</p></div><aside><strong>Your decision</strong><span>Read the story. Give feedback. Request a revision.</span></aside></header>
+      <header class="rv-header"><div><span class="rv-eyebrow">SCRIPT REVIEW · ${escape(episode.id)}</span><h2>${escape(title)}</h2><p>Candidate V${escape(version)} · Not approved</p></div><aside><strong>Your decision</strong><span>Read the story. Give feedback. Request a revision.</span></aside></header>
       <div class="rv-source"><span>${escape(source)} · ${escape(rev(script).slice(0,9))}</span><a href="${sourceURL(base+"/script.md")}" target="_blank" rel="noopener noreferrer">View GitHub source ↗</a></div>
       <div class="rv-overall"><div><h3>Feedback on the whole script</h3><p>Flag the pacing, tone, structure, or a different direction. Paragraph notes are optional.</p></div><button class="button primary" type="button" data-action="rv-overall">Overall feedback</button></div>
       <nav class="rv-tabs" aria-label="Script review">
@@ -133,12 +134,12 @@ export const scriptReview = (function createScriptReview() {
       <section class="rv-panel" data-panel="script"><div class="rv-columns"><article class="rv-paper"><div class="rv-paper-intro"><span class="rv-eyebrow">FULL NARRATION</span><p>Read the complete script. Tap “Add note” under a paragraph to attach feedback to this version.</p></div>${printed}<div class="rv-end">END OF SCRIPT · NOT APPROVED</div></article>
         <aside class="rv-aside"><div><span class="rv-eyebrow">WHAT TO JUDGE</span><h3>Is this a video worth making?</h3><p>Consider the opening, pacing, comedy, one-night dinner, and final psychological insight.</p></div><div><span class="rv-eyebrow">BEFORE PRODUCTION</span><p>The script has an editorial critique and factual audit, but neither is founder approval. The character image is also a candidate.</p><button type="button" data-action="rv-tab" data-tab="checks">Review editorial & facts →</button></div></aside></div></section>
       <section class="rv-panel" data-panel="notes" hidden><div class="rv-section-head"><span class="rv-eyebrow">YOUR FEEDBACK</span><h3>Review notes</h3><p>Notes are tied to the script file revision. They stay in this browser until you use GitHub to submit them.</p></div><div id="rv-note-list"></div></section>
-      <section class="rv-panel" data-panel="checks" hidden><div class="rv-section-head"><span class="rv-eyebrow">CONTEXT</span><h3>Editorial and factual checks</h3><p>The editorial critique applies to V0; the source audit applies to this V1 candidate. Both remain available in full.</p></div>
-        <div class="rv-checks"><article><strong>Editorial changes</strong><p>V1 tightened the repeated opening, added the birthday reservation, and qualified the ending. Runtime and creative direction still need your judgment.</p></article><article><strong>Fact-check cautions</strong><p>The dinner was free. Diners' reactions were mixed. Avoid invented dialogue and precise dates for when the Shed reached #1.</p></article></div>
-        ${edit?.exists?`<details class="rv-document"><summary>Read editorial critique of V0</summary><div class="prose">${edit.html}</div><a href="${sourceURL(edit.path)}" target="_blank" rel="noopener noreferrer">Original source ↗</a></details>`:"<p>Editorial document unavailable.</p>"}
-        ${audit?.exists?`<details class="rv-document"><summary>Read source audit of V1</summary><div class="prose">${audit.html}</div><a href="${sourceURL(audit.path)}" target="_blank" rel="noopener noreferrer">Original source ↗</a></details>`:"<p>Source audit unavailable.</p>"}
+      <section class="rv-panel" data-panel="checks" hidden><div class="rv-section-head"><span class="rv-eyebrow">CONTEXT</span><h3>Editorial and factual checks</h3><p>Read the review and source audit below for their stated versions, findings, and remaining checks.</p></div>
+        <div class="rv-checks"><article><strong>Editorial changes</strong><p>The editorial review records changes and remaining weaknesses. Runtime and creative direction still need your judgment.</p></article><article><strong>Fact-check cautions</strong><p>The dinner was free. Diners' reactions were mixed. Avoid invented dialogue and precise dates for when the Shed reached #1.</p></article></div>
+        ${edit?.exists?`<details class="rv-document"><summary>Read editorial review</summary><div class="prose">${edit.html}</div><a href="${sourceURL(edit.path)}" target="_blank" rel="noopener noreferrer">Original source ↗</a></details>`:"<p>Editorial document unavailable.</p>"}
+        ${audit?.exists?`<details class="rv-document"><summary>Read source audit</summary><div class="prose">${audit.html}</div><a href="${sourceURL(audit.path)}" target="_blank" rel="noopener noreferrer">Original source ↗</a></details>`:"<p>Source audit unavailable.</p>"}
       </section>
-      <section class="rv-panel" data-panel="history" hidden><div class="rv-section-head"><span class="rv-eyebrow">VERSION HISTORY</span><h3>V0 → V1</h3><p>Paragraph-level comparison of the actual earlier candidate and current script.</p></div>${older?.exists?`<div class="rv-diff">${comparison(older.content,script.content)}</div>`:"<p>The V0 script isn't available here.</p>"}<div class="rv-section-head rv-later"><h3>Submitted revision requests</h3><p>GitHub issues show up here only after someone submits them.</p></div><div id="rv-issue-list" role="status"></div></section>
+      <section class="rv-panel" data-panel="history" hidden><div class="rv-section-head"><span class="rv-eyebrow">VERSION HISTORY</span><h3>V0 → V${escape(version)}</h3><p>Paragraph-level comparison of the actual earlier candidate and current script.</p></div>${older?.exists?`<div class="rv-diff">${comparison(older.content,script.content)}</div>`:"<p>The V0 script isn't available here.</p>"}<div class="rv-section-head rv-later"><h3>Submitted revision requests</h3><p>GitHub issues show up here only after someone submits them.</p></div><div id="rv-issue-list" role="status"></div></section>
       <footer class="rv-actions"><div><strong id="rv-note-state">No notes yet</strong><span>Official approval is still pending.</span></div><button class="button primary" type="button" data-action="rv-request">Prepare revision request →</button></footer>
     </div>`;
     renderNotes();
@@ -170,7 +171,7 @@ export const scriptReview = (function createScriptReview() {
       if(!chosen.length){select("notes");state.notify("Add overall feedback or a paragraph note for the current script first.");return;}
       const markdown=revisionRequest();state.request=markdown;
       const link=new URL(`https://github.com/${REPO}/issues/new`);
-      link.searchParams.set("title",`[${state.episode.id}] Script revision request (V1)`);
+      link.searchParams.set("title",`[${state.episode.id}] Script revision request (V${candidateVersion(state.script)})`);
       link.searchParams.set("body",markdown);
       const prefilled=state.script.source==="github-main"&&link.href.length<7600;
       state.showDialog("Prepare revision request",`<div class="dialog-body"><p>${chosen.length} note${chosen.length===1?"":"s"} ready, tied to GitHub file revision <code>${escape(rev(state.script).slice(0,9))}</code>.</p><label for="rv-request-copy">Revision request</label><textarea id="rv-request-copy" rows="10" readonly>${escape(markdown)}</textarea><p class="rv-small">${state.script.source!=="github-main"?"This isn't a live GitHub copy. Verify the current file before submitting.":"This repo is public. GitHub will ask you to review and submit the issue; opening it does not send anything. Your local notes remain saved."}</p><div class="dialog-actions"><button class="button subtle" type="button" data-action="rv-copy">Copy request</button><a class="button primary" href="${prefilled?escape(link.href):`https://github.com/${REPO}/issues/new`}" target="_blank" rel="noopener noreferrer">${prefilled?"Open GitHub to submit ↗":"Open GitHub (paste request) ↗"}</a></div></div>`,true);return;
