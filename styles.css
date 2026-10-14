@@ -358,3 +358,7 @@ dialog::backdrop { background: rgb(0 0 0 / .48); }
   .rv-actions { flex-wrap:wrap; margin-left:-16px; margin-right:-16px; border-radius:0; padding-bottom:max(12px,env(safe-area-inset-bottom)); }
   .rv-actions>.button { flex:1; }
 }
+
+.rv-overall { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:18px; margin:16px 0; border:1px solid var(--color-border); border-radius:8px; background:var(--color-surface); }
+.rv-overall h3 { margin:0 0 6px; }
+.rv-overall p { margin:0; color:var(--color-text-muted); }

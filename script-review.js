@@ -55,11 +55,11 @@ export const scriptReview = (function createScriptReview() {
     });
     const list=state.body.querySelector("#rv-note-list");
     if(list)list.innerHTML=saved.length?saved.map(n=>{
-      const old=n.revision!==current;
-      return `<article class="rv-note"><div class="rv-note-top"><span>${old?"Earlier script version":"Current script"} · Paragraph ${n.paragraph+1}</span><button type="button" data-action="rv-delete" data-id="${escape(n.id)}">Delete</button></div>
-      <blockquote>${escape(n.excerpt)}</blockquote><p>${escape(n.text)}</p><small>${escape(safeDate(n.createdAt))}${old?" · Check against current script":""}</small>
-      ${!old?`<button class="rv-jump" type="button" data-action="rv-jump" data-paragraph="${n.paragraph}">Find in script →</button>`:""}</article>`;
-    }).join(""):`<div class="rv-empty"><h3>No notes yet</h3><p>Read the script and tap “Add note” below a paragraph. Your notes are kept in this browser until you submit them on GitHub.</p></div>`;
+      const old=n.revision!==current, overall=n.kind==="overall";
+      return `<article class="rv-note"><div class="rv-note-top"><span>${old?"Earlier script version":"Current script"} · ${overall?"Overall feedback":`Paragraph ${n.paragraph+1}`}</span><button type="button" data-action="rv-delete" data-id="${escape(n.id)}">Delete</button></div>
+      ${overall?"":`<blockquote>${escape(n.excerpt)}</blockquote>`}<p>${escape(n.text)}</p><small>${escape(safeDate(n.createdAt))}${old?" · Check against current script":""}</small>
+      ${!old&&!overall?`<button class="rv-jump" type="button" data-action="rv-jump" data-paragraph="${n.paragraph}">Find in script →</button>`:""}</article>`;
+    }).join(""):`<div class="rv-empty"><h3>No notes yet</h3><p>Add overall feedback about the whole script, or tap “Add note” below a paragraph. Your notes are kept in this browser until you submit them on GitHub.</p></div>`;
   }
   function select(tab) {
     if(!state?.body?.isConnected)return;
@@ -93,7 +93,9 @@ export const scriptReview = (function createScriptReview() {
       `Script file revision: ${rev(state.script)}`,
       "Status: SCRIPT CANDIDATE — NOT APPROVED","",
       "## Founder feedback","",
-      ...chosen.flatMap((n,i)=>[`${i+1}. Paragraph ${n.paragraph+1}`,`> ${n.excerpt.replace(/\n/g," ")}`,n.text,""]),
+      ...chosen.flatMap((n,i)=>n.kind==="overall"
+        ? [`${i+1}. Overall feedback`,n.text,""]
+        : [`${i+1}. Paragraph ${n.paragraph+1}`,`> ${n.excerpt.replace(/\n/g," ")}`,n.text,""]),
       "## Next work",
       "Revise the whole episode into a new candidate. Preserve documented facts and caveats. Consult the current brief, editorial review, and source audit. Do not treat this request as approval.","",
       `<!-- rabbit-hole-script-review:${state.episode.id} -->`
@@ -121,6 +123,7 @@ export const scriptReview = (function createScriptReview() {
     body.innerHTML=`<div class="review-workspace">
       <header class="rv-header"><div><span class="rv-eyebrow">SCRIPT REVIEW · ${escape(episode.id)}</span><h2>${escape(title)}</h2><p>Candidate V${escape(version)} · Not approved · ~2:10–2:45 estimated</p></div><aside><strong>Your decision</strong><span>Read the story. Give feedback. Request a revision.</span></aside></header>
       <div class="rv-source"><span>${escape(source)} · ${escape(rev(script).slice(0,9))}</span><a href="${sourceURL(base+"/script.md")}" target="_blank" rel="noopener noreferrer">View GitHub source ↗</a></div>
+      <div class="rv-overall"><div><h3>Feedback on the whole script</h3><p>Flag the pacing, tone, structure, or a different direction. Paragraph notes are optional.</p></div><button class="button primary" type="button" data-action="rv-overall">Overall feedback</button></div>
       <nav class="rv-tabs" aria-label="Script review">
         <button type="button" data-action="rv-tab" data-tab="script" aria-selected="true">Script</button>
         <button type="button" data-action="rv-tab" data-tab="notes" aria-selected="false">My notes <span id="rv-count">0</span></button>
@@ -149,10 +152,13 @@ export const scriptReview = (function createScriptReview() {
       const node=state.body.querySelector("#rv-para-"+button.dataset.paragraph);
       node?.scrollIntoView({behavior:"smooth",block:"center"});return;
     }
+    if(action==="rv-overall"){
+      state.showDialog("Overall feedback",`<form class="dialog-body" id="rv-note-form" data-kind="overall" data-revision="${escape(rev(state.script))}" data-episode="${escape(state.episode.id)}"><p class="rv-small">Whole script · version ${escape(rev(state.script).slice(0,9))}</p><label for="rv-note-input">Overall feedback</label><textarea id="rv-note-input" name="feedback" rows="5" minlength="2" maxlength="1200" required placeholder="What should change about the whole script?"></textarea><p class="rv-small">Saved locally for this script revision and shown in My notes. You can request a revision with only this feedback.</p><div class="dialog-actions"><button class="button subtle" type="button" data-action="close-dialog">Cancel</button><button class="button primary" type="submit">Save feedback</button></div></form>`);return;
+    }
     if(action==="rv-add"){
       const i=Number(button.dataset.paragraph);
       if(!Number.isInteger(i)||!state.items[i])return;
-      state.showDialog("Leave a script note",`<form class="dialog-body" id="rv-note-form" data-paragraph="${i}"><p class="rv-small">Paragraph ${i+1} · version ${escape(rev(state.script).slice(0,9))}</p><blockquote>${rich(state.items[i])}</blockquote><label for="rv-note-input">Your feedback</label><textarea id="rv-note-input" name="feedback" rows="5" maxlength="1200" required placeholder="What should change?"></textarea><p class="rv-small">This saves locally. It does not submit anything to GitHub.</p><div class="dialog-actions"><button class="button subtle" type="button" data-action="close-dialog">Cancel</button><button class="button primary" type="submit">Save note</button></div></form>`);return;
+      state.showDialog("Leave a script note",`<form class="dialog-body" id="rv-note-form" data-paragraph="${i}" data-revision="${escape(rev(state.script))}" data-episode="${escape(state.episode.id)}"><p class="rv-small">Paragraph ${i+1} · version ${escape(rev(state.script).slice(0,9))}</p><blockquote>${rich(state.items[i])}</blockquote><label for="rv-note-input">Your feedback</label><textarea id="rv-note-input" name="feedback" rows="5" maxlength="1200" required placeholder="What should change?"></textarea><p class="rv-small">This saves locally. It does not submit anything to GitHub.</p><div class="dialog-actions"><button class="button subtle" type="button" data-action="close-dialog">Cancel</button><button class="button primary" type="submit">Save note</button></div></form>`);return;
     }
     if(action==="rv-delete"){
       if(!notes().some(n=>n.id===button.dataset.id)||!confirm("Delete this feedback note?"))return;
@@ -161,7 +167,7 @@ export const scriptReview = (function createScriptReview() {
     }
     if(action==="rv-request"){
       const chosen=notes().filter(n=>n.revision===rev(state.script));
-      if(!chosen.length){select("notes");state.notify("Add a note to the script first.");return;}
+      if(!chosen.length){select("notes");state.notify("Add overall feedback or a paragraph note for the current script first.");return;}
       const markdown=revisionRequest();state.request=markdown;
       const link=new URL(`https://github.com/${REPO}/issues/new`);
       link.searchParams.set("title",`[${state.episode.id}] Script revision request (V1)`);
@@ -176,10 +182,12 @@ export const scriptReview = (function createScriptReview() {
   }
   function submit(form) {
     if(!state?.body?.isConnected||form.id!=="rv-note-form")return;
+    if(form.dataset.revision!==rev(state.script)||form.dataset.episode!==state.episode.id)throw Error("The script changed. Reopen feedback for the current version before saving.");
+    const overall=form.dataset.kind==="overall";
     const i=Number(form.dataset.paragraph),value=form.querySelector("textarea[name=feedback]")?.value.trim()||"";
-    if(!Number.isInteger(i)||i<0||i>=state.items.length||value.length<2||value.length>1200)throw Error("Write a note between 2 and 1,200 characters.");
+    if((!overall&&(!Number.isInteger(i)||i<0||i>=state.items.length))||value.length<2||value.length>1200)throw Error("Write a note between 2 and 1,200 characters.");
     const list=notes();
-    list.push({id:crypto.randomUUID(),paragraph:i,excerpt:state.items[i].replace(/\*/g,"").slice(0,200),text:value,revision:rev(state.script),createdAt:new Date().toISOString()});
+    list.push({id:crypto.randomUUID(),...(overall?{kind:"overall"}:{paragraph:i,excerpt:state.items[i].replace(/\*/g,"").slice(0,200)}),text:value,revision:rev(state.script),createdAt:new Date().toISOString()});
     writeNotes(list);
     document.querySelector("#dialog")?.close();renderNotes();
     state.notify("Note saved locally. Submit a GitHub issue to share it.");
