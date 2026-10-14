@@ -93,8 +93,10 @@ function render(text, file) {
  return (snapshot.documents[target] || onGithub(target)) ? `<a href="./?episode=PSY-A-01&document=${encodeURIComponent(target)}">${label}</a>` : label;
  }}}); return engine.parse(text);
 }
-const canDraftScript = () => snapshot.workspace.detail.scriptDraftReady || ['brief','research','treatment']
-  .every(id => onGithub('EPISODES/PSY-A-01/' + id + '.md'));
+const canDraftScript = () => ['brief','research','treatment'].every(id => {
+  const path = 'EPISODES/PSY-A-01/' + id + '.md';
+  return livePaths ? onGithub(path) : Boolean(snapshot.documents[path]?.exists);
+});
 const locked = id => id === 'script' ? !canDraftScript()
   : ['storyboard','final-review'].includes(id) && !snapshot.workspace.detail.storyboardReady;
 export async function browserAPI(url, data) {
@@ -139,22 +141,25 @@ export async function browserAPI(url, data) {
   const repoFileExists = onGithub(file);
   const hasUnsyncedDraft = Object.hasOwn(drafts, file);
   if (!original && !repoFileExists && !hasUnsyncedDraft) throw Error('Document is not indexed');
-  const requestedGithub = p.get('source') === 'github';
+  const preferDraft = p.get('source') === 'draft' && hasUnsyncedDraft;
   const savedSnapshot = Boolean(original?.exists && typeof original.content === 'string');
   let remoteContent = '', readError = null;
-  if (repoFileExists) {
+  // GitHub is the default. Saved browser drafts remain available separately.
+  if (repoFileExists && !preferDraft) {
     try { remoteContent = await readGithubFile(file); }
     catch (error) {
       readError = error;
       failedDocuments.set(file, error.message || 'GitHub document could not be read');
     }
   }
-  if (readError && (requestedGithub || (!hasUnsyncedDraft && !savedSnapshot)))
+  const useDraft = hasUnsyncedDraft && (preferDraft || !repoFileExists || Boolean(readError));
+  const useLive = repoFileExists && !preferDraft && !readError;
+  const useSnapshot = !useDraft && !useLive && savedSnapshot &&
+    (!livePaths || (repoFileExists && Boolean(readError)));
+  if (readError && !useDraft && !useSnapshot)
     throw Error('Live GitHub document unavailable: ' + readError.message);
-  const useDraft = hasUnsyncedDraft && !requestedGithub;
-  const useLive = repoFileExists && !readError && !useDraft;
-  const useSnapshot = !useDraft && !useLive && savedSnapshot;
-  const content = useDraft ? drafts[file] : useLive ? remoteContent : useSnapshot ? original.content : '';
+  const content = useDraft ? drafts[file] : useLive ? remoteContent :
+    useSnapshot ? original.content : '';
   const exists = useDraft || useLive || useSnapshot;
   const githubRevision = repoFileExists ? liveBlobs.get(file) : null;
   return { ...original, path:file, exists,
@@ -162,10 +167,11 @@ export async function browserAPI(url, data) {
     version:await version(exists ? content : null),
     repoFileExists, hasUnsyncedDraft,
     githubRevision, draftBaseRevision:draftBases[file] || null,
-    githubUpdatedSinceDraft:Boolean(hasUnsyncedDraft && githubRevision && draftBases[file] && draftBases[file] !== githubRevision),
+    githubUpdatedSinceDraft:Boolean(hasUnsyncedDraft && githubRevision && draftBases[file] &&
+      draftBases[file] !== githubRevision),
     draftBaseUnknown:Boolean(hasUnsyncedDraft && githubRevision && !draftBases[file]),
     repoReadError:readError?.message || null,
-    viewingGithub:requestedGithub && useLive,
+    viewingDraft:useDraft,
     source:useDraft ? 'browser-draft' : useLive ? 'github-main' : 'snapshot' };
  }
  if(route === '/api/template' || route === '/api/packet') {
@@ -175,13 +181,13 @@ export async function browserAPI(url, data) {
  if(route === '/api/preview') {
   const original=snapshot.documents[data.path]; if(!original?.editable || typeof data.content !== 'string') throw Error('This document is read-only');
   const stage=snapshot.workspace.detail.artifacts.find(s=>s.path===data.path); if(locked(stage?.id)) throw Error('The repository approval gate is not cleared.');
-  const current=await browserAPI('/api/document?path='+encodeURIComponent(data.path));
+  const current=await browserAPI('/api/document?path='+encodeURIComponent(data.path)+'&source=draft');
   if(current.version!==data.version) throw Error('File changed on GitHub or in this browser. Reopen it before editing.');
   const token=crypto.randomUUID(); previews.set(token,{...data,githubRevision:current.githubRevision}); return {token,diff:createTwoFilesPatch(data.path,data.path,current.content||'',data.content)};
  }
  if(route === '/api/save') {
   const preview=previews.get(data.token); if(!preview) throw Error('Review the diff first');
-  const current=await browserAPI('/api/document?path='+encodeURIComponent(preview.path)); if(current.version!==preview.version) throw Error('Draft changed. Review it again.');
+  const current=await browserAPI('/api/document?path='+encodeURIComponent(preview.path)+'&source=draft'); if(current.version!==preview.version) throw Error('Draft changed. Review it again.');
   const next={...drafts,[preview.path]:preview.content};
   localStorage.setItem(key,JSON.stringify(next)); drafts=next;
   const base=Object.hasOwn(draftBases,preview.path) ? draftBases[preview.path] : preview.githubRevision;
