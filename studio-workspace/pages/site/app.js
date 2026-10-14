@@ -11,8 +11,14 @@ const docLink = (file, label) => `<a class="source-link" href="${href({ episode:
 const stamp = date => new Intl.DateTimeFormat('en-CA', { dateStyle: 'medium', timeZone: 'America/Toronto' }).format(new Date(date));
 async function api(url, data) { return browserAPI(url, data); }
 async function readDocument(path) {
-  return api('/api/document?path=' + encodeURIComponent(path) +
-    (githubVersions.has(path) ? '&source=github' : ''));
+  const base = '/api/document?path=' + encodeURIComponent(path);
+  if (!githubVersions.has(path)) return api(base);
+  try { return await api(base + '&source=github'); }
+  catch {
+    // If GitHub fails mid-session, do not strand the user's browser draft.
+    githubVersions.delete(path);
+    return api(base);
+  }
 }
 function updateSyncStatus() {
   const banner = document.querySelector('#repo-status');
