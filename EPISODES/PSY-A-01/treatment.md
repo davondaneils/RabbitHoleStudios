@@ -61,3 +61,14 @@ This section supersedes the v1 opening and act emphasis above; the original alte
 
 **Account role:** First practice in tracing credibility to its origin. Future distinct cases may develop other judgment skills. Interactive credibility exercises and a deeper sourced library are commercial hypotheses; no product launch, availability or buyer conversion is assumed. The episode earns interest through a usable insight rather than an unapproved sales pitch.
 **Runtime:** Candidate ~2:20–2:55, to be measured in VO. The full causal story and dinner qualification justify exceeding the initial short-format hypothesis.
+
+## V3 treatment revision — 2026-10-14
+Supersedes the V2 narration plan. **SCRIPT_CANDIDATE; not founder-approved.**
+
+**Spine:** This is about Butler arranging apparent reassurance; by the end, viewers recognize that several checks may lead back to the same origin and ask who actually tried the experience. Primary emotion: uneasy recognition; supporting contrast: dry absurdity.
+
+**Complete beat sheet:** Familiar review/booking action → shed reversal and arranged praise → Butler's background, cropped photo and listing → fake reviews help rank rise → real birthday inquiry and refused callers → #1 → actual one-night dinner with staged sound and actors → observed hesitation versus return interest → free-dinner qualification → one source-checking question.
+
+**Changes from V2:** Removed instruction to “imagine,” the review/rank lecture interruption, parallel product-category examples and repeated ending. Returned to specific physical events; kept the audience problem explicit at the beginning. The dinner gesture makes experience visible without invented dialogue or internal thoughts. Full narration is 270 words; runtime is estimated only.
+
+**Account purpose:** Deliver one small discernment skill through a complete entertaining case. Further sourced cases / interactive practice remain possible, unvalidated continuations; no new product, content-series promise or buyer validation is claimed.

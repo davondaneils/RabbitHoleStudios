@@ -1,8 +1,8 @@
 # PSY-A-01 — The Shed at Dulwich
 **Account:** Psychology / Power / Influence · **Format:** The Setup · **Date:** 2026-10-14
-**Current working status:** SCRIPT_CANDIDATE v2, revised against [founder feedback #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1), pending founder review. **No script, character sheet or animation has been approved by the founder.** This folder is a first documented end-to-end editorial test conducted from a ChatGPT conversation using the same GitHub source of truth that Codex uses.
+**Current working status:** SCRIPT_CANDIDATE v3, revised against [founder feedback #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1), pending founder review. **No script, character sheet or animation has been approved by the founder.** This folder is a first documented end-to-end editorial test conducted from a ChatGPT conversation using the same GitHub source of truth that Codex uses.
 
-Previous candidate: [v1](script-v1.md). Feedback on its file revision remains historical; this revision is not approval.
+Previous candidates: [v2](script-v2.md) and [v1](script-v1.md). Feedback on its file revision remains historical; this revision is not approval.
 
 Read in order:
 1. [Audience-value brief](brief.md) — who it serves and what the viewer gets.

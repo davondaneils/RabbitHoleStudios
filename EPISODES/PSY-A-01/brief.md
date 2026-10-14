@@ -41,3 +41,6 @@
 **Episode promise:** Trace dependent credibility signals and learn to seek evidence beyond popularity. Teach it during the review/ranking and scarcity beats, then apply it at the end.
 **Commercial hypothesis:** Repeat visits for distinct sourced cases → interest in practicing credibility judgments → potential interactive case exercises / deeper library. This is a proposed audience journey, not validated buyer behavior. No actual product or offer is established. Test demand before building it.
 **Current candidate:** `script.md` v2, ~2:20–2:55 estimate. Founder evaluates the full script and audience fit before production.
+
+## V3 writing correction — 2026-10-14
+Current candidate is `script.md` v3, superseding the V2 opening/emphasis. The audience job and commercial hypothesis above remain provisional. The revision replaces explanation-heavy narration with the booking obstacle, invented food image, concrete birthday inquiry and actual dinner behavior. It ends with one question about firsthand experience. `editorial-review.md` now maps the active craft rules to passages and edits, with VO/visual checks explicitly pending. Estimated 1:55–2:20; 270 spoken words; founder review still required.
