@@ -1,9 +1,9 @@
-import { browserAPI } from './browser-api.js?v=live2-20261014';
+import { browserAPI } from './browser-api.js?v=live3-20261014';
 const main = document.querySelector('#main');
 const dialog = document.querySelector('#dialog');
 let workspace, editor = null, routeSequence = 0, noticeTimer;
 let currentURL = location.href;
-const githubVersions = new Set();
+const draftVersions = new Set();
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const href = params => './?' + new URLSearchParams(params);
 const badge = (text, type = '') => `<span class="badge ${type}">${escape(text)}</span>`;
@@ -11,14 +11,8 @@ const docLink = (file, label) => `<a class="source-link" href="${href({ episode:
 const stamp = date => new Intl.DateTimeFormat('en-CA', { dateStyle: 'medium', timeZone: 'America/Toronto' }).format(new Date(date));
 async function api(url, data) { return browserAPI(url, data); }
 async function readDocument(path) {
-  const base = '/api/document?path=' + encodeURIComponent(path);
-  if (!githubVersions.has(path)) return api(base);
-  try { return await api(base + '&source=github'); }
-  catch {
-    // If GitHub fails mid-session, do not strand the user's browser draft.
-    githubVersions.delete(path);
-    return api(base);
-  }
+  return api('/api/document?path=' + encodeURIComponent(path) +
+    (draftVersions.has(path) ? '&source=draft' : ''));
 }
 function updateSyncStatus() {
   const banner = document.querySelector('#repo-status');
@@ -92,7 +86,7 @@ function documentArticle(doc, title = 'Source document', edit = true) {
   const editURL = 'https://github.com/davondaneils/RabbitHoleStudios/edit/main/' +
     doc.path.split('/').map(encodeURIComponent).join('/');
   const sourceButton = doc.hasUnsyncedDraft && doc.repoFileExists && !doc.repoReadError
-    ? `<button class="button subtle" data-action="toggle-document-source" data-path="${escape(doc.path)}">${doc.viewingGithub ? 'Show browser draft' : 'View GitHub version'}</button>` : '';
+    ? `<button class="button subtle" data-action="toggle-document-source" data-path="${escape(doc.path)}">${doc.viewingDraft ? 'View GitHub version' : 'Show saved browser draft'}</button>` : '';
   const githubButton = doc.repoFileExists
     ? `<a class="button subtle" href="${escape(editURL)}" target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a>` : '';
   return `<section class="document-panel"><header class="document-header"><div><h2>${escape(title)}</h2><span class="file-path">${escape(doc.path)}</span><p class="caption">${escape(sourceLabel)}</p>${draftWarning ? `<p class="caption draft-warning">${escape(draftWarning)}</p>` : ''}${doc.repoReadError ? `<p class="caption draft-warning">GitHub file could not load: ${escape(doc.repoReadError)}. Showing saved copy if available.</p>` : ''}${locked && !doc.exists ? `<p class="caption">${draftReason(stage)}</p>` : ''}</div><div class="document-actions">${sourceButton}${githubButton}${edit && doc.editable ? `<button class="button subtle" data-action="edit-document" data-path="${escape(doc.path)}" ${locked ? 'disabled' : ''}>Edit browser draft</button>` : ''}</div></header><article class="prose">${reducedHeadings(doc.html)}</article></section>`;
@@ -190,6 +184,7 @@ async function syncNow() {
   if (button) { button.disabled = true; button.textContent = 'Syncing…'; }
   try {
     const result = await api('/api/refresh');
+    draftVersions.clear();
     await refresh();
     notify(workspace?.sync?.mode === 'live' ? 'GitHub checked and documents refreshed.' :
       workspace?.sync?.mode === 'degraded' ? 'Some GitHub documents could not load; saved copies shown where possible.' :
@@ -199,7 +194,7 @@ async function syncNow() {
   }
 }
 async function openEditor(file, stage) {
-  const doc = await api('/api/document?path=' + encodeURIComponent(file));
+  const doc = await api('/api/document?path=' + encodeURIComponent(file) + '&source=draft');
   if (!doc.editable) throw new Error('This source is read-only in the workspace');
   const seed = doc.exists ? doc.content : (await api('/api/template?stage=' + encodeURIComponent(stage))).content;
   editor = { path: file, version: doc.version, initial: seed, content: seed, dirty: !doc.exists, token: null };
@@ -244,14 +239,14 @@ document.addEventListener('click', async event => {
     if (action === 'edit-document' || action === 'create-stage') await openEditor(button.dataset.path, button.dataset.stage);
     if (action === 'toggle-document-source') {
       const path = button.dataset.path;
-      if (githubVersions.has(path)) githubVersions.delete(path); else githubVersions.add(path);
+      if (draftVersions.has(path)) draftVersions.delete(path); else draftVersions.add(path);
       await refresh();
     }
     if (action === 'preview-edit') await previewEdit();
     if (action === 'back-to-edit') editForm();
     if (action === 'save-edit') {
       button.disabled = true;
-      await api('/api/save', { token: editor.token }); editor = null; dialog.close(); await refresh(); notify('Draft saved in this browser. Export it when ready; GitHub has not changed.');
+      await api('/api/save', { token: editor.token }); draftVersions.add(editor.path); editor = null; dialog.close(); await refresh(); notify('Draft saved on this device only. Your current GitHub file was not changed.');
     }
     if (action === 'packet') await showPacket(button.dataset.stage);
     if (action === 'review-approval') await reviewApproval(button.dataset.id);
