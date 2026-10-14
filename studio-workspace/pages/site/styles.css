@@ -269,10 +269,11 @@ dialog::backdrop { background: rgb(0 0 0 / .48); }
   border-bottom: 1px solid var(--color-border);
 }
 #repo-status[data-mode="live"] { color: var(--color-text-muted); }
-#repo-status[data-mode="snapshot"] {
+#repo-status[data-mode="snapshot"], #repo-status[data-mode="degraded"] {
   color: var(--color-danger);
   font-weight: 600;
 }
+.draft-warning { color: var(--color-danger); margin-top: var(--space-3); }
 .document-actions { justify-content: flex-end; }
 @media (max-width: 767px) {
   .topbar-actions { width: 100%; justify-content: stretch; }
