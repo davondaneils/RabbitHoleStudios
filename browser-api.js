@@ -1,6 +1,6 @@
 import { Marked } from './marked.js';
 import { createTwoFilesPatch } from './diff/index.js';
-const snapshot = await fetch('./snapshot.json').then(r => { if(!r.ok) throw Error('Repository snapshot could not load'); return r.json(); });
+const snapshot = await fetch('./snapshot.json?v=live2-20261014', {cache:'no-store'}).then(r => { if(!r.ok) throw Error('Repository snapshot could not load'); return r.json(); });
 const GITHUB_REPO = 'davondaneils/RabbitHoleStudios';
 const GITHUB_API = 'https://api.github.com/repos/' + GITHUB_REPO;
 const GITHUB_RAW = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/';
