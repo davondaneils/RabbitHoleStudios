@@ -1,80 +1,71 @@
-# PSY-A-01 — The Setup: “London's Best Restaurant Was a Shed”
-**Status:** SCRIPT_CANDIDATE v1 · 2026-10-13 · **NOT APPROVED**.
-**Format:** Entire self-contained episode (not a teaser) · Narrator off screen · 2D TV cel animation, pending visual approval.
-**Source pack:** `research.md`, `treatment.md`, `source-audit.md`; prior draft and critique in `script-v0.md` / `editorial-review.md`.
-**Working spoken runtime:** ~2:10–2:45 at a natural delivery plus visual pauses. Confirm with an actual VO take before committing to a final duration; length not locked.
-**Viewer promise:** Understand how several “independent” signs of quality can grow from the same fabricated reputation.
+# PSY-A-01 — The Setup: “You Checked the Reviews. So Did They.”
+**Status:** SCRIPT_CANDIDATE v2 · 2026-10-14 · **NOT APPROVED**.
+**Revision request:** [Founder feedback #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1), against v1 file revision `833b3eb671145c4bba747ef3f1513f4a7a2874c7`.
+**Format:** Complete self-contained episode · Off-screen narrator · Original adult 2D cel animation, pending approval.
+**Source pack:** `research.md`, `source-audit.md`; previous candidate preserved in `script-v1.md`. Separate critical pass: `editorial-review.md`.
+**Working spoken runtime:** ~2:20–2:55 including pauses; estimate only, pending a recorded read-through.
+**Viewer promise:** See how the checks you use to avoid being fooled can repeat the same fabricated reputation, and learn to look for evidence outside that chain.
 
 ## Full narration (candidate)
-A real customer calls a London restaurant asking for a table that night.
+You check the reviews because you don't want to get fooled.
 
-The man answering says they're booked for six weeks.
+But what if the reviews are where the trick starts?
 
-Which is impressive, considering his restaurant is a garden shed.
+In 2017, a garden shed became London's number-one restaurant on TripAdvisor. People were trying to book tables before it had served a meal.
 
-It's 2017. The man is Oobah Butler, a writer who used to earn ten pounds a review praising restaurants he'd never eaten at.
+Here's how the evidence piled up around something that wasn't there.
 
-He'd seen what fake reviews could do. So he decided to try something bigger.
+Oobah Butler had written fake restaurant reviews for money. Now he invented the restaurant too.
 
-What if the *entire restaurant* were fake?
+A website. A cheap phone. Food photos, including an egg balanced on his foot, carefully cropped.
 
-One ten-pound burner phone. A website. A street name, but no house number.
+He called it The Shed at Dulwich. Appointment only.
 
-And one very useful phrase: *appointment only*.
+TripAdvisor listed it. Friends supplied glowing reviews. Its ranking climbed.
 
-His menu is based on moods. The food photos look strangely expensive. One dish is a sponge covered in paint and shaving foam.
+Pause there. A review and a high ranking can look like two checks. Here, the fake reviews were helping produce the ranking.
 
-Another? An egg resting on his foot.
+Then real people started calling.
 
-TripAdvisor approves *The Shed at Dulwich*. It's ranked dead last in London: number 18,149.
+One inquiry was for a 70th birthday. Nine guests. Imagine being the person choosing that restaurant.
 
-Oobah gets his friends posting glowing reviews. Slowly, the ranking climbs.
+Oobah told callers he was booked up. No tables, no chance to try the food. From outside, that could look like a place everyone else had discovered first.
 
-Then actual people start calling. One inquiry is for a 70th birthday. Nine guests.
+A reason to hesitate could become a reason to want in.
 
-He turns people away.
+Eventually, number one.
 
-Suppliers send samples. People apply for jobs. A PR agency wants to represent a restaurant that isn't there.
+Then he opened for one night. Now there would actually be food to judge.
 
-And eventually, The Shed reaches number one on TripAdvisor's London restaurant rankings.
+Microwave meals, dressed for the occasion.
 
-The only problem now is that people want to *eat* there.
+And actors at nearby tables performing their enthusiasm.
 
-So Oobah opens it.
+Even in the garden, some of the apparent reassurance was staged.
 
-For one night.
+The reactions were mixed. In Butler's account, one couple seemed unimpressed; another table asked to return. Dinner was free.
 
-Some guests arrive blindfolded. A DJ plays restaurant noises and little dings to mask the microwave. Actors at nearby tables make a show of loving the food.
+That doesn't tell us what caused each person's reaction. But we can trace how the place acquired its reputation.
 
-The real diners get dressed-up ready meals in a back garden.
+Fake reviews helped build the ranking. Real interest followed. Butler supplied the claims of being fully booked. At dinner, he supplied some of the happy customers too.
 
-One couple leaves looking distinctly unimpressed.
+So when you're checking out a restaurant, a course, or an expert, ask: *what evidence would still be here if I removed the popularity?*
 
-But another table, according to Oobah, asks if they can come back.
+Look for someone who can show what they actually experienced, independently of the pitch.
 
-To be fair, the dinner was free.
+You can count five reasons to trust something and still be checking the same story five times.
 
-And some of the happy diners were hired to look happy.
+The Shed had a reputation before it had a dinner.
 
-Now trace the reputation backward.
+Follow where the reputation came from.
 
-The fake reviews helped create the ranking. The ranking attracted real interest. The invented waiting list made it seem exclusive. And at dinner, some of the enthusiasm came from planted guests.
-
-Reviews. Rankings. Scarcity. Other customers.
-
-They *looked* like separate reasons to believe the place was great.
-
-But much of that proof led back to the same thing.
-
-A man with a ten-pound phone.
-
-And a shed.
-
-## Performance / story direction — NOT an approved shot list
-- **Cold open:** Start with a recognizable reservation request and an on-screen “FULLY BOOKED — SIX WEEKS” implication; cut to the unremarkable garden shed. **Do not** imply recorded dialogue or a verified location for the actual phone conversation.
-- **Setup comedy:** Real hands/objects, one burner phone and cheap staged food. Treat the foot-and-egg gag as a visual reversal, not a generic montage.
-- **Escalation:** Let one specific nine-person birthday inquiry be the human anchor; avoid a wall of unreadable mock reviews or fake historical screenshots.
-- **#1:** Make the number-one badge a clear midpoint revelation; don't end the film there.
-- **Actual dinner:** Differentiate genuine diners from planted actors visually. The free dinner is a necessary caveat; the guests' reactions remain self-reported.
-- **Final recognition:** The causal chain visually traces backward and converges on the shed; *no* lecture about generalized human psychology or made-up scientific certainty.
-- **Not yet authorized:** Detailed storyboard, image/video render credits, publication, or “approved” asset flags.
+## Story / performance notes — awaiting founder approval
+- **Hook:** Directly addresses the viewer's desire to avoid being fooled. Show a generic illustrated review check, then reveal the shed. This opening is a hypothetical viewer situation, not an assertion about every actual caller.
+- **Causal beats:** apparent due diligence → fabricated listing → dependent review/rank signals → genuine inquiries and asserted scarcity → actual dinner with planted reassurance → mixed response → practical evidence question. Complete ending; no withheld payoff.
+- **Human stakes:** The birthday inquiry is documented. “Imagine being…” is an explicit invitation to the viewer, not an invented caller motive or family relationship.
+- **Interpretation:** “Can” and “could” distinguish the credibility reading from established mental states. A ranking is not an independent inspection; this case does not establish universal effects or current platform vulnerabilities.
+- **Delivery:** Brief pause at “Pause there”; let the meal reveal carry the joke. Keep the final question conversational. No recorded VO or final timing claimed.
+- **Account continuation:** Each sourced case can develop a different credibility-checking skill. The closing question gives a complete useful payoff now and a reason to seek further cases. Interactive practice / a sourced case library remain possible paid continuations, not existing products or validated demand. No invented offer or sales CTA.
+- **Provisional visual needs:** Review/rank illustration, Oobah, cropped food reveal, phone/birthday inquiry, shed and dinner with clearly differentiated actors, backward reputation chain. This is a conceptual inventory, not a production shot list or permission to generate assets.
+- **Optional cut:** Remove the foot-photo detail if the first recorded read runs long; retain the birthday stakes, dinner caveats and practical payoff.
+- **Production gate:** No storyboard, generated assets, or publication until explicit founder script approval. Detailed shot timings follow that approval.

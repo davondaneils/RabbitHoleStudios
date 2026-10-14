@@ -1,8 +1,27 @@
-# PSY-A-01 — Line-by-line source and interpretation audit
-**Status:** CANDIDATE FACT-CHECK, 2026-10-13; not legal clearance or publication approval. Applies to `script.md` v1.
+# PSY-A-01 — V2 source and interpretation audit
+**Status:** CANDIDATE FACT-CHECK, 2026-10-14; not legal clearance or publication approval. Current script is v2. The inherited claim register below includes v1 material removed from v2; it remains reference context. Prior audit preserved in `source-audit-v1.md`.
 **Primary:** [Oobah Butler (VICE), December 6, 2017](https://www.vice.com/en/article/i-made-my-shed-the-top-rated-restaurant-on-tripadvisor/).
 **Independent contemporary check:** [Eli Rosenberg (Washington Post), December 8, 2017](https://www.washingtonpost.com/news/food/wp/2017/12/08/it-was-londons-top-rated-restaurant-just-one-problem-it-didnt-exist/).
 **Firsthand interview:** [Scott Simon interview with Butler (NPR), December 9, 2017](https://www.northcountrypublicradio.org/news/npr/569601017/opening-the-hottest-fake-restaurant-in-town).
+
+
+## V2 verification and changed framing
+Reopened the VICE firsthand account, NPR interview transcript and Washington Post contemporary report on 2026-10-14. No new incident or invented dialogue was added. Rechecking corroborating coverage does not make individual guest reactions independently measured.
+
+| V2 element | Check / boundary |
+|---|---|
+| Reviews as a safeguard; course/expert comparison; five reasons sharing one story | Editorial framing and hypothetical application. Not a researched claim about the audience or an accusation against an actual course/expert. |
+| Shed reached London #1 before the one-night dinner | Existing chronology, contemporary report and organizer interview. Site ranking, not an objective quality judgment. Exact day and duration omitted. |
+| Paid review background, listing, cropped foot/egg photograph, friends' reviews | Existing sourced details, rechecked. No platform exploitation instructions or claims about current controls. |
+| Review/rank dependence | “Helping produce” does not claim a known ranking formula or that fake reviews alone determined the position. |
+| 70th birthday inquiry, nine guests | VICE firsthand account; unchanged detail. “Imagine” explicitly marks viewer perspective, not a sourced caller motive. |
+| Apparent exclusivity and desire to get in | Qualified interpretation (“could”), not a claim that all callers felt scarcity pressure. |
+| One-night dinner, ready meals, planted enthusiasm | Organizer account and NPR interview. Distinguish actors from actual guests. |
+| Mixed reactions, return request, free dinner | Preserve the more qualified detailed account; do not generalize NPR's broad positive recollection to every guest. |
+| Practical closing question | A proposed credibility check, not validated deception-detection training or a guarantee that independent evidence is true. |
+
+**Source roles:** VICE supplies detailed firsthand observations; NPR provides the organizer's interview; Washington Post independently inspected archived rankings. Story synthesis is not a controlled psychological study.
+**Remaining gates:** Actual VO check, rights clearance for any source media, and explicit founder approval. No new production or publication authorization.
 
 | Candidate line/claim | Evidence | Status / safe framing |
 |---|---|---|

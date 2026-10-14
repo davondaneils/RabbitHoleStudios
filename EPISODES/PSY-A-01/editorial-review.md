@@ -1,31 +1,26 @@
-# PSY-A-01 — Skeptical editorial pass
-**Status:** Critique complete of `script-v0.md`; revised text is `script.md`. **Same assistant, separate critical pass, not an external or independently credentialed review.** Founder script approval still pending.
+# PSY-A-01 — V2 skeptical editorial pass
+**Status:** Review of `script.md` v2, 2026-10-14. Same assistant, separate critical pass; not an external review. **SCRIPT_CANDIDATE — NOT APPROVED.** Previous critique retained in `editorial-review-v1.md`.
+**Trigger:** [Founder request #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1).
 
-## Editorial diagnosis
-**Audience fit:** The “apparently independent signs of credibility share a manipulated origin” insight does serve this account's aim: help viewers see the hidden influence mechanism. Do not turn the episode into a sermon about everyone being gullible.
+## Does it answer the feedback?
+- **Hook and psychology frame:** “You check the reviews because you don't want to get fooled” identifies the viewer's motivation immediately. The second line creates the contradiction; the shed arrives in the third paragraph. Risk: this is more explicit than the v1 comic opening and needs a brisk delivery, not a lecture.
+- **Relevance through the story:** The review/rank pause explains dependent evidence before the midpoint. The birthday inquiry gives the viewer a socially meaningful decision to imagine. Scarcity and planted diner reactions develop the same question instead of adding unrelated psychological labels.
+- **Larger account purpose:** The final evidence question gives a small, usable judgment skill. Repeated cases can earn demand for deeper learning and practice. It does not presume viewers want negotiation training or advertise a nonexistent product.
 
-**Main problems and corrections, with exact v0 passages:**
-1. **Opening overstates an unseen scene and repeats itself.** `"The restaurant is a garden shed"` and `"Then his phone rings... Oobah panics and says... six weeks"` repeats the same event already used in the hook. We do not know precisely **where** he was standing as he took the call. **Fix:** hook is explicitly a caller hearing a six-week wait; follow with the visual contrast of the real shed (not a claimed contemporaneous room position). When we arrive back at rising demand, mention the nine-person 70th birthday inquiry instead of restaging the first call.
-2. **The human cost is too abstract.** `"More people call"` does not show an actual person's hope; a reported **70th-birthday booking for nine** is memorable and grounded in the original article. **Fix:** insert it after the first call; avoid invented family relationships, names, or dialogue.
-3. **Ending overcounts and moralizes the cues.** `"Five convincing signals"` feels like a PowerPoint principle, and “buzz” isn't clearly evidenced as an independent category. `"Every fully booked phone call made it feel harder to get into"` presumes what each caller believed. **Fix:** enumerate the chain concretely (friends' reviews → listing ranking → genuine demand → false scarcity → planted dinner reactions), then explain in one earned punchline that the ostensible confirmations share a source. Use “could look” rather than proven effects on each person.
-4. **Evidence caveat missing.** Guests were **not charged** for the one-night dinner, some diners were actors, and the actual non-actor reactions were mixed. **Fix:** explicitly say it was free, and don't claim diners loved it *because of* staged praise. Explain that one group asked to return **according to Butler's firsthand account**.
-5. **Weak duration framing:** the v0 script is a complete arc, not a 27-second teaser, but it doesn't need many abstract filler beats. Draft for ~2:15 rather than forcing it under 60 seconds; once VO timing is real, cut only if dramatic meaning survives.
-6. **Potential visual/legal confusion:** snapshots of the original VICE story include legally mocked-up TripAdvisor captures. The script needs visual reenactment labeling and source permissions checked before any archival-looking frame is used.
+## Critical decisions and remaining weaknesses
+1. **Avoid presuming the viewer's superiority.** No “you would have fallen for it” or “only idiots believed it.” The opening names a recognizable intention, not a diagnosis. The birthday invitation is hypothetical, not attributed emotion.
+2. **Avoid explaining every beat twice.** Keep one explicit review/rank pause, one short scarcity interpretation, and the closing transfer. Cut the former suppliers/applicants/PR list and second fake-food gag. These entertained but delayed the viewer-relevance thread.
+3. **The dinner cannot prove a bias.** Keep the free meal, mixed reactions, attribution to Butler, and explicit causal limit. The new transition “Now there would actually be food to judge” poses a question without promising everyone was deceived.
+4. **The advice is useful but incomplete.** Independent firsthand evidence can also be faked. The ending offers a better question, not a foolproof detection method or a scientific training claim. A future practice product would need its own evidence and testing.
+5. **Commercial intent must earn its place.** A direct purchase CTA would be premature. Candidate notes identify a coherent learning/practice continuation; the narration pays off the current story completely. Founder should judge whether this makes the account worth returning to.
 
-## Five question Creative OS audit
-| Question | Answer / pending risk |
+## Whole-script check
+| Question | Judgment |
 |---|---|
-| Why stop? | A highly exclusive restaurant allegedly fully booked for six weeks is just a shed. Concrete contrast has hook potential. Must test phone-screen readability. |
-| What happens / why care? | Former fake-review writer tests a fake restaurant; viewers should understand reviews/rankings/demand are not independent proof. |
-| What changes? | Listing approved → strangers call → external suppliers and PR act on it → #1 → real people dine → mixed reactions. |
-| Is payoff earned? | One-night dinner creates a second reveal, and the backward chain earns the audience insight. Confound: free dinner and staged actors. |
-| What to cut? | Second six-week reference, generalized “buzz,” excess list-style moralizing, duplicate setup adjectives; show key objects instead. |
+| Why stop? | The safeguard you use to avoid deception can be the starting point of the deception. The shed supplies a concrete contradiction immediately. |
+| Why care? | The viewer may be choosing a venue, service or person using dependent reputation cues. Birthday inquiry makes that concern tangible. |
+| What changes? | Invented listing → reviews/rank → actual demand/refusals → #1 → real food plus staged enthusiasm → mixed reactions → a question to apply elsewhere. |
+| Is the promise repaid? | Yes at candidate level: the chain is traced and the final question asks what independent evidence exists. Not a guarantee of safety. |
+| What can go? | Foot-photo detail is the first optional cut. Do not remove qualifications merely to hit a runtime. |
 
-## Approval blockers / open judgment calls
-- **Audience promise:** founder may prefer a more sophisticated angle, darker tone or more comic shape. This is only a candidate.
-- **Length:** ~2:15–2:45 may be longer than initial 45–90-sec hypotheses; must test pace and perhaps build a complete shorter cut, not arbitrary cliffhanger chunks.
-- **Fact check:** full claim-by-claim review in `source-audit.md`. Exact date that listing hit #1 is disputed (Butler Nov 1 vs archival evidence Nov 4): no date in script. Don't call the dinner a controlled experiment.
-- **VO:** do a spoken read-through before animatic; exact timecodes cannot be assumed from words alone.
-- **Rights and accuracy:** no source-photo, trademark interface, music or realistic reenacted guest voices without careful treatment. Character sheet is still candidate.
-
-**Recommendation:** Show the founder the complete `script.md` for substantive reaction rather than asking whether the hook alone sounds catchy. Mark `SCRIPT_CANDIDATE`, not APPROVED.
+**Pending:** Founder taste/angle approval; actual voice read and measured runtime; phone-size visual execution; final source/rights checks before publication. No retention or sales improvement is claimed from an editorial pass.

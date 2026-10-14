@@ -33,3 +33,11 @@
 - **Next required approval:** Is the account/audience promise compelling? Is the full story worth watching? If yes, approve or revise `script.md`, then plan animation proof from the finished story.
 
 **Links:** [Research](research.md) · [Treatment](treatment.md) · [Script](script.md) · [Editorial review](editorial-review.md).
+
+## V2 audience emphasis — 2026-10-14
+[Founder request #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1) asks for a stronger psychology frame, sustained viewer relevance and a clearer role in the account's commercial purpose. This supersedes the previous opening/promise emphasis; approval remains pending.
+
+**Viewer job:** Avoid making a choice that feels carefully researched but rests on manufactured credibility. Connect the fear of being fooled to the aspiration of being discerning, without promising immunity to manipulation.
+**Episode promise:** Trace dependent credibility signals and learn to seek evidence beyond popularity. Teach it during the review/ranking and scarcity beats, then apply it at the end.
+**Commercial hypothesis:** Repeat visits for distinct sourced cases → interest in practicing credibility judgments → potential interactive case exercises / deeper library. This is a proposed audience journey, not validated buyer behavior. No actual product or offer is established. Test demand before building it.
+**Current candidate:** `script.md` v2, ~2:20–2:55 estimate. Founder evaluates the full script and audience fit before production.

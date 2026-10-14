@@ -47,3 +47,17 @@ One couple appears unimpressed; another table asks about booking again, both per
 3. **Causation oversold:** actual guests reacted differently; ranking date has contradictory accounts; staged actors and free dinner do not prove any precise psychological effect.
 
 **Next artifact:** [full script candidate](script.md), followed by [independent skeptical critique](editorial-review.md) and a [claim audit](source-audit.md). Founder decides whether to accept or change angle C.
+
+## V2 treatment revision — 2026-10-14, responding to issue #1
+This section supersedes the v1 opening and act emphasis above; the original alternatives remain as history. **CANDIDATE, NOT APPROVED.**
+
+**Promise:** A viewer trying to avoid being fooled recognizes how apparently separate checks can repeat one manufactured reputation, then learns to seek evidence outside that chain.
+
+1. Start with the viewer checking reviews to avoid a bad choice. Reveal the shed and pose the evidence problem immediately.
+2. Establish Butler's fake-review background and invented restaurant. After the reviews raise the ranking, pause on why those two signals are related. This introduces the psychological frame during the action.
+3. Make the reported birthday inquiry the social stake. Invite the viewer to imagine choosing the venue; do not invent that caller's thoughts. Explain asserted scarcity as a possible reading, not a proven motive.
+4. Reach #1, then open for the one-night dinner. Physical experience now tests the reputation, but planted enthusiasm is still present. Preserve mixed reactions, organizer attribution and the free meal.
+5. Trace fabricated inputs and genuine downstream interest separately. Transfer the question to the viewer's own choices: what evidence survives if popularity is removed? End on the shed's reputation preceding its dinner.
+
+**Account role:** First practice in tracing credibility to its origin. Future distinct cases may develop other judgment skills. Interactive credibility exercises and a deeper sourced library are commercial hypotheses; no product launch, availability or buyer conversion is assumed. The episode earns interest through a usable insight rather than an unapproved sales pitch.
+**Runtime:** Candidate ~2:20–2:55, to be measured in VO. The full causal story and dinner qualification justify exceeding the initial short-format hypothesis.
