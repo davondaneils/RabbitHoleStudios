@@ -1,30 +1,39 @@
-import { browserAPI } from './browser-api.js?v=sync1';
+import { browserAPI } from './browser-api.js?v=live2-20261014';
 const main = document.querySelector('#main');
 const dialog = document.querySelector('#dialog');
 let workspace, editor = null, routeSequence = 0, noticeTimer;
 let currentURL = location.href;
+const githubVersions = new Set();
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const href = params => './?' + new URLSearchParams(params);
 const badge = (text, type = '') => `<span class="badge ${type}">${escape(text)}</span>`;
 const docLink = (file, label) => `<a class="source-link" href="${href({ episode: 'PSY-A-01', document: file })}">${escape(label || file.split('/').pop().replace('.md', '').replaceAll('-', ' '))}<span aria-hidden="true">→</span></a>`;
 const stamp = date => new Intl.DateTimeFormat('en-CA', { dateStyle: 'medium', timeZone: 'America/Toronto' }).format(new Date(date));
 async function api(url, data) { return browserAPI(url, data); }
+async function readDocument(path) {
+  return api('/api/document?path=' + encodeURIComponent(path) +
+    (githubVersions.has(path) ? '&source=github' : ''));
+}
 function updateSyncStatus() {
   const banner = document.querySelector('#repo-status');
   if (!banner || !workspace?.sync) return;
   const info = workspace.sync;
-  const local = info.unsyncedDrafts ? ' · ' + info.unsyncedDrafts + ' browser draft(s) not synced to GitHub' : '';
+  const local = info.unsyncedDrafts ? ' · ' + info.unsyncedDrafts + ' unsynced browser draft(s)' : '';
+  const revision = info.commit ? ' @ ' + info.commit.slice(0,7) : '';
+  const checked = info.checkedAt ? ' · checked ' + new Date(info.checkedAt).toLocaleTimeString('en-CA',
+    { timeZone:'America/Toronto', hour:'numeric', minute:'2-digit' }) + ' ET' : '';
   if (info.mode === 'live') {
-    banner.textContent = 'Reading current files from GitHub main' + local +
-      '. Browser draft saves are local only; use "Edit on GitHub" for permanent edits.';
-    banner.dataset.mode = 'live';
+    banner.textContent = 'LIVE GITHUB · main' + revision + checked + local +
+      '. Drafts on this device do not save to GitHub.';
+  } else if (info.mode === 'degraded') {
+    banner.textContent = 'PARTIAL GITHUB · main' + revision + checked +
+      ' · ' + (info.failedFiles?.length || 0) + ' document read(s) failed. Saved copies shown where available; press Sync GitHub to retry.' + local;
   } else {
-    banner.textContent = 'GitHub unavailable — showing an older saved snapshot. Updates may be missing.' +
+    banner.textContent = 'OFFLINE SNAPSHOT · GitHub could not be checked. Files may be out of date.' +
       (info.error ? ' (' + info.error + ')' : '') + local;
-    banner.dataset.mode = 'snapshot';
   }
+  banner.dataset.mode = info.mode;
 }
-
 function notify(text) {
   clearTimeout(noticeTimer); document.querySelector('#notice').textContent = text;
   if (text) noticeTimer = setTimeout(() => { document.querySelector('#notice').textContent = ''; }, 8000);
@@ -63,15 +72,24 @@ function draftReason(stage) { return stage.id === 'script' ? 'Confirm the audien
 function documentArticle(doc, title = 'Source document', edit = true) {
   const stage = workspace.detail.artifacts.find(s => s.path === doc.path);
   const locked = draftLocked(stage);
-  const sourceLabel = doc.hasUnsyncedDraft
-    ? 'Unsynced browser draft — it may be older than GitHub. Export local drafts to preserve them.'
-    : doc.source === 'github-main' ? 'Current file from GitHub main'
-    : doc.source === 'snapshot' ? 'Saved snapshot — may be out of date' : 'Local document';
+  const sourceLabel = doc.source === 'browser-draft'
+    ? 'UNSYNCED BROWSER DRAFT — saved only on this device'
+    : doc.source === 'github-main' ? 'LIVE GITHUB FILE — main'
+    : 'SAVED SNAPSHOT — may be out of date';
+  const draftWarning = doc.hasUnsyncedDraft && doc.repoFileExists
+    ? doc.githubUpdatedSinceDraft
+      ? 'GitHub changed since this browser draft was saved. Both versions are preserved; compare before copying changes.'
+      : doc.draftBaseUnknown
+        ? 'This draft has no verified GitHub baseline. Open the GitHub version to compare.'
+        : 'Your browser draft and the GitHub file are separate copies. Both are available.'
+    : '';
   const editURL = 'https://github.com/davondaneils/RabbitHoleStudios/edit/main/' +
     doc.path.split('/').map(encodeURIComponent).join('/');
+  const sourceButton = doc.hasUnsyncedDraft && doc.repoFileExists && !doc.repoReadError
+    ? `<button class="button subtle" data-action="toggle-document-source" data-path="${escape(doc.path)}">${doc.viewingGithub ? 'Show browser draft' : 'View GitHub version'}</button>` : '';
   const githubButton = doc.repoFileExists
     ? `<a class="button subtle" href="${escape(editURL)}" target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a>` : '';
-  return `<section class="document-panel"><header class="document-header"><div><h2>${escape(title)}</h2><span class="file-path">${escape(doc.path)}</span><p class="caption">${escape(sourceLabel)}</p>${locked && !doc.exists ? `<p class="caption">${draftReason(stage)}</p>` : ''}</div><div class="document-actions">${githubButton}${edit && doc.editable ? `<button class="button subtle" data-action="edit-document" data-path="${escape(doc.path)}" ${locked ? 'disabled' : ''}>Edit browser draft</button>` : ''}</div></header><article class="prose">${reducedHeadings(doc.html)}</article></section>`;
+  return `<section class="document-panel"><header class="document-header"><div><h2>${escape(title)}</h2><span class="file-path">${escape(doc.path)}</span><p class="caption">${escape(sourceLabel)}</p>${draftWarning ? `<p class="caption draft-warning">${escape(draftWarning)}</p>` : ''}${doc.repoReadError ? `<p class="caption draft-warning">GitHub file could not load: ${escape(doc.repoReadError)}. Showing saved copy if available.</p>` : ''}${locked && !doc.exists ? `<p class="caption">${draftReason(stage)}</p>` : ''}</div><div class="document-actions">${sourceButton}${githubButton}${edit && doc.editable ? `<button class="button subtle" data-action="edit-document" data-path="${escape(doc.path)}" ${locked ? 'disabled' : ''}>Edit browser draft</button>` : ''}</div></header><article class="prose">${reducedHeadings(doc.html)}</article></section>`;
 }
 function emptyStage(stage) {
   const locked = draftLocked(stage);
@@ -82,7 +100,7 @@ async function episode(params, sequence) {
   const account = workspace.accounts.find(a => a.episodes.some(e => e.id === params.get('episode')));
   const episode = account?.episodes.find(e => e.id === params.get('episode'));
   if (!episode) throw new Error('Episode not found. Return to the pilot overview.');
-  const doc = await api('/api/document?path=' + encodeURIComponent(episode.path));
+  const doc = await readDocument(episode.path);
   if (sequence !== routeSequence) return;
   const view = params.get('view') || 'brief';
   document.title = `${episode.story} · Rabbit Hole Studios`;
@@ -95,17 +113,17 @@ async function episode(params, sequence) {
     const nextId = ({ 'Premise review': 'brief', 'Audience alignment': 'brief', Research: 'research', 'Story treatment': 'treatment', 'Full script': 'script', 'Script review': 'editorial-review', 'Script approved': 'storyboard', 'Production proof': 'final-review' })[workspace.detail.currentStage] || 'brief';
     const next = workspace.detail.artifacts.find(s => s.id === nextId);
     const nextTitle = ({ brief: 'Earn the viewer reward', research: 'Follow the original record', treatment: 'Build the complete story', script: 'Draft the whole episode', 'editorial-review': 'Review the complete script', storyboard: 'Plan the production proof', 'final-review': 'Review the finished work' })[nextId];
-    const workingDoc = working.exists ? await api('/api/document?path=' + encodeURIComponent(working.path)) : null;
+    const workingDoc = working.exists ? await readDocument(working.path) : null;
     if (sequence !== routeSequence) return;
     body.innerHTML = `<div class="context-banner"><span aria-hidden="true">◇</span><div><strong>Audience-value gate: ${workspace.detail.state.records.audience?.status === 'approved' ? 'approved for this version' : 'working hypothesis'}</strong><span>Premise: ${escape(workspace.detail.premiseStatus.replaceAll('-', ' '))}. The audience gate, script and individual visual assets are reviewed separately.</span></div><a href="${href({ episode: episode.id, view: 'approvals' })}">View approvals</a></div><div class="workspace-columns"><div>${documentArticle(doc, 'The source brief')}${workingDoc ? documentArticle(workingDoc, 'Working episode brief') : emptyStage(working)}</div><aside class="context-panel" aria-label="Episode workflow"><span class="eyebrow">Next useful action</span><h2>${workspace.detail.currentStage === 'Premise review' ? 'Revisit the story premise' : nextTitle}</h2><p>${escape(next.instruction)}</p>${packetButton(nextId, nextId === 'brief' ? 'Prepare audience task' : 'Prepare next task')}<div class="rule"></div><h3>Editorial path</h3><ol class="stage-list">${workspace.detail.artifacts.slice(0, 7).map((s, i) => `<li><span class="stage-number">${i + 1}</span><div>${escape(s.name)}<span class="caption">${s.substantive ? 'Draft present' : s.exists ? 'Draft started' : 'Not started'}</span></div></li>`).join('')}</ol><div class="rule"></div><h3>Read with this episode</h3>${['STUDIO/audience-research.md', 'STUDIO/creative-os.md', 'STUDIO/editorial-workflow.md', 'SHOWS/psychology/README.md'].map(p => docLink(p)).join('')}</aside></div>`;
   } else if (view === 'research') {
     const stage = workspace.detail.artifacts.find(s => s.id === 'research');
-    const source = await api('/api/document?path=RESEARCH%2Fsource-register.md');
-    const own = stage.exists ? await api('/api/document?path=' + encodeURIComponent(stage.path)) : null;
+    const source = await readDocument('RESEARCH/source-register.md');
+    const own = stage.exists ? await readDocument(stage.path) : null;
     if (sequence !== routeSequence) return;
     body.innerHTML = `<div class="view-heading"><div><h2>Evidence before interpretation</h2><p class="measure">The source register is a research queue. Listed sources have not all been verified against the script.</p></div>${packetButton('research')}</div>${own ? documentArticle(own, 'Episode research') : emptyStage(stage)}${documentArticle(source, 'Studio source register', false)}`;
   } else if (view === 'script') {
-    const items = await Promise.all(workspace.detail.artifacts.slice(2).map(async s => ({ stage: s, doc: s.exists ? await api('/api/document?path=' + encodeURIComponent(s.path)) : null })));
+    const items = await Promise.all(workspace.detail.artifacts.slice(2).map(async s => ({ stage: s, doc: s.exists ? await readDocument(s.path) : null })));
     if (sequence !== routeSequence) return;
     body.innerHTML = `<div class="context-banner"><span aria-hidden="true">◇</span><div><strong>Full episode first</strong><span>A script draft remains a candidate. Storyboarding opens only after a current founder script approval.</span></div></div>${items.map(({ stage, doc }) => `<section class="stage-section"><div class="view-heading"><div><span class="eyebrow">${stage.id === 'script' ? 'Candidate work' : 'Editorial work'}</span><h2>${escape(stage.name)}</h2></div>${packetButton(stage.id)}</div>${doc ? documentArticle(doc, 'Working document', !['storyboard', 'final-review'].includes(stage.id) || workspace.detail.storyboardReady) : emptyStage(stage)}</section>`).join('')}`;
   } else if (view === 'references') {
@@ -142,7 +160,7 @@ async function render(focus = false) {
     if (sequence !== routeSequence) return;
     workspace = current; updateSyncStatus(); nav();
     if (params.has('document')) {
-      const doc = await api('/api/document?path=' + encodeURIComponent(params.get('document')));
+      const doc = await readDocument(params.get('document'));
       if (sequence !== routeSequence) return;
       const title = doc.content.match(/^# (.+)/m)?.[1] || 'Source document';
       document.title = `${title} · Rabbit Hole Studios`;
@@ -153,6 +171,11 @@ async function render(focus = false) {
   } catch (error) {
     if (sequence !== routeSequence) return;
     main.innerHTML = `<section class="error-panel"><h1 tabindex="-1">The workspace could not open</h1><p class="inline-error" role="alert">! ${escape(error.message)}</p><button class="button primary" data-action="retry">Retry</button><a class="button subtle" href="./">Pilot overview</a></section>`;
+  } finally {
+    if (sequence === routeSequence && workspace) {
+      workspace.sync = await api('/api/status');
+      updateSyncStatus();
+    }
   }
 }
 async function refresh() { await render(); }
@@ -162,8 +185,9 @@ async function syncNow() {
   try {
     const result = await api('/api/refresh');
     await refresh();
-    notify(result.mode === 'live' ? 'Latest GitHub files loaded.' :
-      'Live GitHub unavailable. Showing saved snapshot; check the status message.');
+    notify(workspace?.sync?.mode === 'live' ? 'GitHub checked and documents refreshed.' :
+      workspace?.sync?.mode === 'degraded' ? 'Some GitHub documents could not load; saved copies shown where possible.' :
+      'GitHub unavailable. Showing saved snapshot; check the status message.');
   } finally {
     if (button) { button.disabled = false; button.textContent = '↻ Sync GitHub'; }
   }
@@ -212,6 +236,11 @@ document.addEventListener('click', async event => {
   try {
     if (action === 'close-dialog' || action === 'discard-edit') return closeDialog();
     if (action === 'edit-document' || action === 'create-stage') await openEditor(button.dataset.path, button.dataset.stage);
+    if (action === 'toggle-document-source') {
+      const path = button.dataset.path;
+      if (githubVersions.has(path)) githubVersions.delete(path); else githubVersions.add(path);
+      await refresh();
+    }
     if (action === 'preview-edit') await previewEdit();
     if (action === 'back-to-edit') editForm();
     if (action === 'save-edit') {
