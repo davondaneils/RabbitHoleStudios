@@ -1,4 +1,5 @@
 import { browserAPI } from './browser-api.js?v=live3-20261014';
+import { scriptReview } from './script-review.js?v=review1-20261014';
 const main = document.querySelector('#main');
 const dialog = document.querySelector('#dialog');
 let workspace, editor = null, routeSequence = 0, noticeTimer;
@@ -64,7 +65,7 @@ function overview(params) {
   const show = params.get('show');
   const title = show || account?.name || 'The pilot slate';
   document.title = `${title} · Rabbit Hole Studios`;
-  main.innerHTML = `<section class="page-header"><div><div class="eyebrow">${account ? 'Account / ' + escape(account.subtitle) : 'First test round'}</div><h1 tabindex="-1">${escape(title)}</h1><p class="lede">${account ? 'Two show hypotheses. Each begins with a real story.' : 'Three accounts. Six first stories. Develop the work before scaling it.'}</p></div>${account ? `<a class="button subtle" href="./">All accounts</a>` : ''}</section>${!account || account.id === 'psychology' ? `<section class="continue-strip"><div><span class="eyebrow">Continue PSY-A-01</span><h2>The Shed at Dulwich</h2><p>The Setup · ${escape(workspace.detail.currentStage)}</p></div><a class="button primary" href="${href({ episode: 'PSY-A-01' })}">Open episode <span aria-hidden="true">→</span></a></section>` : ''}<div class="section-heading"><h2>${account ? 'Show formats' : 'Your accounts'}</h2><span class="caption">${workspace.detail.premiseStatus === 'approved' ? 'Premises approved for development' : 'Pilot premises under review'}</span></div><div class="account-grid ${account ? 'single-account' : ''}">${accounts.map((a, index) => `<section class="account-panel account-${a.id}"><header class="account-header"><span class="account-index" aria-hidden="true">0${index + 1}</span><div><h2><a href="${href({ account: a.id })}">${escape(a.name)}</a></h2><span class="caption">${escape(a.subtitle)}</span></div></header>${episodeRows(a, show)}<footer>${docLink(a.path, 'Account mini-bible')}</footer></section>`).join('')}</div><section class="studio-note"><span class="eyebrow">The studio constraint</span><p>Eight founder-hours a week. Web design remains the primary business. Audience fit, production costs and buyer demand are still hypotheses.</p>${docLink('STUDIO/decisions.md', 'Read the locked decisions')}</section>`;
+  main.innerHTML = `<section class="page-header"><div><div class="eyebrow">${account ? 'Account / ' + escape(account.subtitle) : 'First test round'}</div><h1 tabindex="-1">${escape(title)}</h1><p class="lede">${account ? 'Two show hypotheses. Each begins with a real story.' : 'Three accounts. Six first stories. Develop the work before scaling it.'}</p></div>${account ? `<a class="button subtle" href="./">All accounts</a>` : ''}</section>${!account || account.id === 'psychology' ? `<section class="continue-strip"><div><span class="eyebrow">Continue PSY-A-01</span><h2>The Shed at Dulwich</h2><p>The Setup · ${escape(workspace.detail.currentStage)}</p></div><a class="button primary" href="${href({ episode: 'PSY-A-01', view: 'script' })}">Review script <span aria-hidden="true">→</span></a></section>` : ''}<div class="section-heading"><h2>${account ? 'Show formats' : 'Your accounts'}</h2><span class="caption">${workspace.detail.premiseStatus === 'approved' ? 'Premises approved for development' : 'Pilot premises under review'}</span></div><div class="account-grid ${account ? 'single-account' : ''}">${accounts.map((a, index) => `<section class="account-panel account-${a.id}"><header class="account-header"><span class="account-index" aria-hidden="true">0${index + 1}</span><div><h2><a href="${href({ account: a.id })}">${escape(a.name)}</a></h2><span class="caption">${escape(a.subtitle)}</span></div></header>${episodeRows(a, show)}<footer>${docLink(a.path, 'Account mini-bible')}</footer></section>`).join('')}</div><section class="studio-note"><span class="eyebrow">The studio constraint</span><p>Eight founder-hours a week. Web design remains the primary business. Audience fit, production costs and buyer demand are still hypotheses.</p>${docLink('STUDIO/decisions.md', 'Read the locked decisions')}</section>`;
 }
 function reducedHeadings(html) { return html.replace(/<(\/?)(h[1-6])(?=[ >])/g, (_, slash, tag) => `<${slash}h${Math.min(6, Number(tag[1]) + 2)}`); }
 function draftLocked(stage) { return stage?.id === 'script' ? !workspace.detail.scriptDraftReady : ['storyboard', 'final-review'].includes(stage?.id) && !workspace.detail.storyboardReady; }
@@ -102,9 +103,9 @@ async function episode(params, sequence) {
   if (!episode) throw new Error('Episode not found. Return to the pilot overview.');
   const doc = await readDocument(episode.path);
   if (sequence !== routeSequence) return;
-  const view = params.get('view') || 'brief';
+  const view = params.get('view') || (episode.implemented && episode.stage === 'Script candidate' ? 'script' : 'brief');
   document.title = `${episode.story} · Rabbit Hole Studios`;
-  const tabs = [['brief', 'Brief & audience'], ['research', 'Research'], ['script', 'Story & script'], ['references', 'References'], ['approvals', 'Approvals']];
+  const tabs = [['brief', 'Brief & audience'], ['research', 'Research'], ['script', 'Script review'], ['references', 'References'], ['approvals', 'Approvals']];
   main.innerHTML = `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="./">Studio</a><span aria-hidden="true">/</span><a href="${href({ account: account.id })}">${escape(account.name)}</a><span aria-hidden="true">/</span><a href="${href({ account: account.id, show: episode.show })}">${escape(episode.show)}</a><span aria-hidden="true">/</span><span aria-current="page">${escape(episode.id)}</span></nav><section class="page-header episode-header"><div><div class="eyebrow">${escape(episode.show)} / ${escape(episode.id)}</div><h1 tabindex="-1">${escape(episode.story)}</h1><p class="lede">${episode.implemented ? 'An investigation into manufactured trust, reputation and the signals we believe.' : 'A first-story hypothesis, ready for premise development.'}</p></div>${badge(episode.stage, 'neutral')}</section>${episode.implemented ? `<nav class="route-tabs" aria-label="Episode sections">${tabs.map(([id, name]) => `<a href="${href({ episode: episode.id, view: id })}"${id === view ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav><div id="episode-body"></div>` : `<div class="context-banner">The working tools are available for PSY-A-01. This episode currently shows its existing source brief.</div>${documentArticle(doc, 'Pilot brief', false)}`}`;
   if (!episode.implemented) return;
   const body = document.querySelector('#episode-body');
@@ -123,9 +124,8 @@ async function episode(params, sequence) {
     if (sequence !== routeSequence) return;
     body.innerHTML = `<div class="view-heading"><div><h2>Evidence before interpretation</h2><p class="measure">The source register is a research queue. Listed sources have not all been verified against the script.</p></div>${packetButton('research')}</div>${own ? documentArticle(own, 'Episode research') : emptyStage(stage)}${documentArticle(source, 'Studio source register', false)}`;
   } else if (view === 'script') {
-    const items = await Promise.all(workspace.detail.artifacts.slice(2).map(async s => ({ stage: s, doc: s.exists ? await readDocument(s.path) : null })));
+    await scriptReview.render({ body, episode, readDocument, showDialog, notify });
     if (sequence !== routeSequence) return;
-    body.innerHTML = `<div class="context-banner"><span aria-hidden="true">◇</span><div><strong>Full episode first</strong><span>A script draft remains a candidate. Storyboarding opens only after a current founder script approval.</span></div></div>${items.map(({ stage, doc }) => `<section class="stage-section"><div class="view-heading"><div><span class="eyebrow">${stage.id === 'script' ? 'Candidate work' : 'Editorial work'}</span><h2>${escape(stage.name)}</h2></div>${packetButton(stage.id)}</div>${doc ? documentArticle(doc, 'Working document', !['storyboard', 'final-review'].includes(stage.id) || workspace.detail.storyboardReady) : emptyStage(stage)}</section>`).join('')}`;
   } else if (view === 'references') {
     body.innerHTML = `<div class="view-heading"><div><h2>Keep style and identity separate</h2><p class="measure">Linked references remain at their original hosts. A link records a source; it does not establish rights or availability.</p></div>${docLink(workspace.sources.visuals[0], 'Style guide')}</div><div class="reference-filters"><label>Search references<input id="reference-search" type="search" placeholder="Name, model or job ID" value="${escape(params.get('q') || '')}"></label><label>Reference type<select id="reference-kind"><option value="all">All types</option>${[['style', 'Style only'], ['identity', 'Identity only'], ['character', 'Character candidate']].map(([id, label]) => `<option value="${id}"${params.get('kind') === id ? ' selected' : ''}>${label}</option>`).join('')}</select></label><span id="reference-count" class="caption" role="status"></span></div><div id="reference-results" class="reference-grid"></div><div class="source-pack"><h3>Reusable visual pack</h3>${workspace.sources.visuals.map(p => docLink(p)).join('')}</div>`;
     renderReferences();
@@ -235,6 +235,7 @@ document.addEventListener('click', async event => {
   const button = event.target.closest('[data-action]'); if (!button || button.disabled) return;
   const action = button.dataset.action;
   try {
+    if (action.startsWith('rv-')) { await scriptReview.click(button); return; }
     if (action === 'close-dialog' || action === 'discard-edit') return closeDialog();
     if (action === 'edit-document' || action === 'create-stage') await openEditor(button.dataset.path, button.dataset.stage);
     if (action === 'toggle-document-source') {
@@ -273,6 +274,12 @@ dialog.addEventListener('input', event => {
   }
 });
 dialog.addEventListener('submit', async event => {
+  if (event.target.id === 'rv-note-form') {
+    event.preventDefault();
+    try { scriptReview.submit(event.target); }
+    catch (error) { document.querySelector('#dialog-error').textContent = '! ' + error.message; }
+    return;
+  }
   if (event.target.id !== 'approval-form') return;
   event.preventDefault();
   const fields = new FormData(event.target), button = event.submitter; button.disabled = true;

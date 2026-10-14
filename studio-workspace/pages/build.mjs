@@ -22,6 +22,7 @@ try {
  for (const [source,target] of [
   ['./site/index.html','index.html'],
   ['./site/app.js','app.js'],
+  ['./site/script-review.js','script-review.js'],
   ['./site/styles.css','styles.css'],
   ['./browser-api.js','browser-api.js'],
   ['../node_modules/marked/lib/marked.esm.js','marked.js']
