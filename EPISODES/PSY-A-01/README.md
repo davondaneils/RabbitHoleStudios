@@ -12,4 +12,4 @@ Read in order:
 
 **Do not move to storyboard or generate shots automatically.** The user reviews audience promise, full script and creative choices first. Follow `AGENTS.md`, `STUDIO/editorial-workflow.md`, `STUDIO/creative-os.md`, and `SHOWS/psychology/README.md`.
 
-**App caveat:** GitHub Pages currently serves a **generated browser snapshot from the `gh-pages` branch**, not live reads from `main`. These files are committed to `main`; the web app's snapshot will not automatically reflect them until its deployment is regenerated. Browser edits also do not write to GitHub.
+**Phone app:** GitHub Pages reads the current **public `main` branch files** on page load and when you press **Sync GitHub**. The bundled snapshot is a labelled fallback if GitHub cannot be reached. Browser drafts stay on the device; **Edit on GitHub** handles authenticated permanent edits. Documents appearing in the app never count as founder approvals.
