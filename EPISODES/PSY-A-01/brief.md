@@ -50,3 +50,6 @@ Current candidate is `script.md` v4. Founder rejected choppy narration; the new 
 
 ## V5 — research-informed revision, 2026-10-14
 Current candidate is `script.md` v5, with 203 spoken words and a complete dinner outcome. The specific reward is recognizing dependent credibility signals; the commercial learning/practice continuation remains a hypothesis. The process now consults [primary-source evidence](../../RESEARCH/short-form-scriptwriting-2026-10-14.md) and [staged testing guidance](../../STUDIO/writing/testing.md). Separate model critique found and repaired chronology and advice errors. Actual VO, unfamiliar-listener and visual testing are pending. Founder approval is still required.
+
+## V6 — ending pace, 2026-10-14
+Current script is V6. Founder called V5 the best candidate so far but said its finish rushed. This is a targeted ending revision; first six narration paragraphs and the audience promise are preserved. The finish now separates the viewer's apparent checks from their actual origins before the final question. Prior V5 is retained. Approval and actual delivery/listener tests remain pending.
