@@ -3,7 +3,7 @@
 
 ## Required reading and clarity review
 
-Before each writing task, follow [the writing-library routing table](writing/README.md). Full script creation and substantive revision require all five craft modules. Before presenting the candidate, use [the critical editing pass](writing/editing.md) and fix passages that a distracted listener would need to reconstruct. Record exact problems and repairs rather than scoring the presence of techniques. Audio and visual checks remain separate from text review.
+Before each writing task, follow [the writing-library routing table](writing/README.md). Full script creation and substantive revision require all five craft modules plus [testing guidance](writing/testing.md); consult the [evidence review](../RESEARCH/short-form-scriptwriting-2026-10-14.md) conclusions/limits on the first relevant task of a revision session. Before presenting the candidate, use [the critical editing pass](writing/editing.md) and fix passages that a distracted listener would need to reconstruct. Record exact problems and repairs rather than scoring the presence of techniques. Where feasible, obtain an independent critique of the actual draft and apply warranted fixes; disclose model versus human review. Write a performance hypothesis and keep attention, comprehension, satisfaction and buyer-interest evidence distinct. Audio and visual checks remain separate from text review.
 
 ## Principle: the episode serves a viewer job, not just a good anecdote
 For *each* episode, establish these five things *before* script drafting:

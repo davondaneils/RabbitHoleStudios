@@ -4,7 +4,7 @@
 
 ## Required craft modules
 
-Use [the writing library](writing/README.md) and its task-routing table. Full scripts and substantive rewrites require audience, hooks, story, narration and editing modules. The modules bring selected deeper craft guidance into active use; the archive remains historical. For Instagram, connected, instantly understandable narration takes priority over punchy fragmentation.
+Use [the writing library](writing/README.md) and its task-routing table. Full scripts and substantive rewrites require audience, hooks, story, narration and editing modules plus `writing/testing.md`. Use the conclusions/limits of the [evidence review](../RESEARCH/short-form-scriptwriting-2026-10-14.md) at the start of a relevant revision session. The modules bring selected deeper craft guidance into active use; the archive remains historical. For Instagram, connected, instantly understandable narration takes priority over punchy fragmentation.
 
 ## Audience value before the spine (mandatory)
 

@@ -12,3 +12,6 @@ Let the emotional experience change. Surprise can lead to amusement, then concer
 Use real actions, objects and constraints. Tell directly when that is the easiest way to orient the listener; show when behavior communicates more economically. Do not confuse “show, don't tell” with refusing to explain essential context.
 
 Resolve the local question. The ending should grow from the events and leave one clear implication. Cut competing morals, repeated plot summaries and obligatory cliffhangers. Further episodes may deepen a skill without making this one incomplete.
+
+## Coherence and discoveries
+Primary narrative-memory studies in [the evidence review](../../RESEARCH/short-form-scriptwriting-2026-10-14.md) support the value of relationships among events. Translate that into an outline where each scene changes the situation and helps explain another scene or the ending. Do not invent causation or insert linking words as a cosmetic fix. Each discovery should reward attention and leave a comprehensible next development; this is a house craft heuristic, not a dopamine schedule. Curiosity may impair recall of unrelated material, so keep psychological detail attached to the event that earns it.

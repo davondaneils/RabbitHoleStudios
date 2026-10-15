@@ -12,3 +12,6 @@ A hook creates an obligation. Write its promised payoff beside the outline; conf
 Reject an opening if it needs a reread, sounds more dramatic than the evidence, requires a previous episode, or promises a different story. Do not make it “punchier” by breaking a clear sentence into disconnected fragments.
 
 First-frame clarity must eventually be checked in the actual visual. A text hook alone cannot prove phone-size legibility, watch time, or retention. Prefer one readable visual idea over dense captions or a logo sequence.
+
+## A specific question, with enough context
+The [curiosity and prediction evidence](../../RESEARCH/short-form-scriptwriting-2026-10-14.md) comes largely from learning tasks, not Reels. Our inference is to make the missing answer understandable. Consider several different openings when useful—unexpected result, consequential situation, or viewer's normal trust check—and identify the exact promised payoff. Select a working candidate by clarity/truth/account fit, leaving audience preference unmeasured. Give intermediate answers as events change; do not keep adding unresolved questions or use a compulsory three/six-second rule. Hook text, first image, caption and delivery form one experience.
