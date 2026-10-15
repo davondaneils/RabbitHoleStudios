@@ -88,3 +88,6 @@ Current plan supersedes V3's fragmented opening: lead with the actual historical
 **Rewards along the way:** Fabricated presentation explains initial plausibility; real birthday inquiry shows consequences; actual dinner answers what happened when people visited; source-dependence synthesis gives a practical account payoff. This progression is an editorial application of curiosity/coherence evidence, not a neuroscience formula.
 
 **Scope:** Full 203-word episode, estimated 1:25–1:50 including pauses until measured. Conceptual visual inventory in `script.md`; no detailed production planning or asset generation. Story closure remains complete. Actual narrator, listener and visual checks await their inputs and approval.
+
+## V6 — give the ending room, 2026-10-14
+Founder preferred V5 overall but found the finish rushed. Preserve its opening, setup, booking demand and full dinner outcome. Expand only the final movement: revisit pre-booking checks → show the review/rank/unavailability information a prospective diner could encounter → trace those apparently separate signals to their origins → show that none confirmed actual meal experience → one source-origin question. This gives the audience time to understand the reveal without another story or a second lesson. Current narration: 240 words; delivery timing unmeasured. Candidate, not founder-approved.
