@@ -47,3 +47,14 @@ Founder authorized a modular writing library and mandatory task-based reading to
 
 ## LOCKED — 2026-10-14 (Research-informed writing and honest testing)
 Founder authorized deep research, process updates and a new script candidate. The active library now requires evidence conclusions/limits and staged testing guidance. Scientific findings, platform guidance and editorial hypotheses must be distinguished; no dopamine-maximizing formula or fixed hook/cut interval is adopted. Separate critique should examine the actual draft and repairs. Attention, comprehension, satisfaction and buyer interest need distinct evidence. Lab-memory results, advertiser guidance and noisy platform tests do not certify an organic script. These are process commitments; the recommended mini-investigation format and hook choices remain TEST hypotheses, not validated winners.
+
+
+## LOCKED — 2026-10-15 (Survival positioning and blackout-first direction)
+
+- **Working direction approved by founder:** Household preparedness that turns uncertainty into practical capability. Promise: “We show what happens when everyday systems fail—and help you prepare your household before you need to.” Energy dependence/current events can supply story context; household readiness is the central reason to follow. Blackouts are the entry focus, with broader preparedness a possible later expansion.
+- **Development priority:** The Breaking Point / SUR-B-01 leads the next survival audience/source work. The Decision / flooded-road premise remains available as broader preparedness; earlier premise approval is not script or production approval. The 20th-floor setting does not lock the account to apartment residents.
+- **Commercial preference:** B2C self-serve blackout planning guide, automated delivery and limited routine fulfillment; value hypothesis is helping buyers make their own usable plan. Battery-buying-only and installer lead-generation directions are superseded as the core offer. No product build, price, paid service or sales result is approved or validated here.
+- **TEST / HYPOTHESIS:** Starting audience is people responsible for a household who feel underprepared and need priorities. Geography, household type, exact promise that drives demand, willingness to pay, funnel, upgrades and affiliate economics remain open. Investigative curiosity may help content; conspiracy identity is not adopted as positioning.
+- **Evidence / owner / review:** Founder-supplied handoff plus explicit authorization in this chat on 2026-10-15; founder owns direction. Next review follows household/geography research and a proposed first blackout brief. No new customer interviews or market validation were conducted for this update.
+
+This updates the earlier broad survival emphasis and development order; it does not change the other accounts or approve any script, asset or publication. Canonical account guidance: `SHOWS/survival/README.md`.

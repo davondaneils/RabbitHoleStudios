@@ -29,7 +29,7 @@ A first offer should be a small honest test of buyer pull, not a giant upfront c
 ## Current three test accounts
 
 - **Psychology / Power / Influence:** understand how people are influenced or become socially sharper. The audience who likes exposing deception may differ from the audience who pays to improve negotiation/communication. Test bridges separately.
-- **Survival / Preparedness:** competence and responsibility under pressure. Buyer may want tailored household readiness rather than generic free safety information. Require factual accuracy.
+- **Survival / Preparedness (updated 2026-10-15):** practical household readiness, starting with blackouts. Working audience: people responsible for a household who feel underprepared and need priorities. Use entertaining dependency/scenario stories to build capability; energy news supplies context rather than the central promise. Preferred commercial direction is a B2C self-serve blackout planning guide that helps someone create a usable household plan. Buyer demand, geography, household segment, price and economics remain hypotheses. See the [account mini-bible](../SHOWS/survival/README.md).
 - **Christian Character / Virtue:** men and fathers seeking grounded faith, courage, duty, self-control and strong example; fatherhood teaching and adult formation are distinct potential customers. Avoid assuming red-pill and diverse Christian denominations form one uniform audience.
 
 Other contenders remain *in reserve*: interactive mystery games, historical/propaganda investigations, activity packs for parents, spirituality/personal transformation, fantasy RPG content and more. They are neither validated winners nor permanently rejected.
