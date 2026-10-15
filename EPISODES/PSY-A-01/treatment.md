@@ -72,3 +72,6 @@ Supersedes the V2 narration plan. **SCRIPT_CANDIDATE; not founder-approved.**
 **Changes from V2:** Removed instruction to “imagine,” the review/rank lecture interruption, parallel product-category examples and repeated ending. Returned to specific physical events; kept the audience problem explicit at the beginning. The dinner gesture makes experience visible without invented dialogue or internal thoughts. Full narration is 270 words; runtime is estimated only.
 
 **Account purpose:** Deliver one small discernment skill through a complete entertaining case. Further sourced cases / interactive practice remain possible, unvalidated continuations; no new product, content-series promise or buyer validation is claimed.
+
+## V4 — connected narration, 2026-10-14
+Current plan supersedes V3's fragmented opening: lead with the actual historical result, explain the fabricated listing/reviews and ensuing calls in order, connect asserted scarcity to apparent popularity, then show the one-night meal and planted customers. Preserve mixed reactions and the free dinner. Finish by explaining why reviews/rank can share an origin and offer one source check. Viewer goal and hypothetical commercial continuation remain unchanged. Full script is a candidate, not approved.

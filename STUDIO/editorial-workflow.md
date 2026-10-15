@@ -1,6 +1,10 @@
 # Studio editorial workflow — audience-first, full-story-first
 **Status:** Required working process for pilot scripts, established 2026-10-13. Applies to Psychology, Survival and Christian accounts. **This is a routing/gating process, not a demand that every episode use every creative technique.** See [active Creative OS](creative-os.md) for writing standards and [audience research](audience-research.md) for ICP hypotheses.
 
+## Required reading and clarity review
+
+Before each writing task, follow [the writing-library routing table](writing/README.md). Full script creation and substantive revision require all five craft modules. Before presenting the candidate, use [the critical editing pass](writing/editing.md) and fix passages that a distracted listener would need to reconstruct. Record exact problems and repairs rather than scoring the presence of techniques. Audio and visual checks remain separate from text review.
+
 ## Principle: the episode serves a viewer job, not just a good anecdote
 For *each* episode, establish these five things *before* script drafting:
 1. **Specific audience / viewer job** — which account/segment, what do they actively desire or fear, what kind of social/emotional payoff do they seek? Separate confirmed audience evidence from our hypotheses.

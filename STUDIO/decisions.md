@@ -42,3 +42,5 @@
 ## How to record future decisions
 
 Date / Decision (LOCKED, TEST, KILLED, PAUSED, HYPOTHESIS) / Evidence / Owner / Next review. Only log changes that would alter the actual production plan.
+## LOCKED — 2026-10-14 (Writing guidance and Instagram clarity)
+Founder authorized a modular writing library and mandatory task-based reading to make the existing craft guidance reliably available. `STUDIO/writing/README.md` routes tasks; full scripts and substantive rewrites require all five modules. Preserve the original framework as historical reference. Default Instagram narration to familiar words, connected sentences and clear cause and effect. Do not equate short fragments with simplicity. Critical edits must identify listener problems and repair passages; technique checklists do not establish quality. Audio, visual, audience and approval checks remain distinct. This is a process decision, not approval of any script or product.

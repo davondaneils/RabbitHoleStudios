@@ -5,7 +5,7 @@
 **Mandatory routing:**
 - **Episode ideas / commissioning:** read `STUDIO/audience-research.md`, `STUDIO/editorial-workflow.md`, the relevant account brief, and `STUDIO/strategy.md` when buyer fit is relevant. Clear the **Audience Value Gate** *before* drafting a script.
 - **True-story research:** also read `RESEARCH/source-register.md`, verify the originals and log claims/uncertainty.
-- **Story architecture, scripts, edits:** read `STUDIO/creative-os.md`, `STUDIO/editorial-workflow.md`, `TEMPLATES/episode-brief.md`, the account and episode briefs. **Develop the complete story, then a complete script, then a separate editorial review before founder script approval.** A 15–30-second animation proof is an *extract*, not a substitute for a full episode.
+- **Story architecture, scripts, edits:** read `STUDIO/creative-os.md`, `STUDIO/editorial-workflow.md`, `TEMPLATES/episode-brief.md`, the account and episode briefs. Also read `STUDIO/writing/README.md` and every module required by its task-routing table; full scripts and substantive rewrites require all five modules. **Develop the complete story, then a complete script, then a separate editorial review before founder script approval.** A 15–30-second animation proof is an *extract*, not a substitute for a full episode.
 - **Character/image generation:** also read the applicable show style guide, prompts, real-person dossier, and reference asset index; for The Setup these are in `SHOWS/psychology/`.
 - **Production:** read `STUDIO/production.md` and only generate assets for understood story/shot requirements.
 
@@ -26,6 +26,7 @@ Do not silently promote a brainstorm, a price example, a style reference, or a h
 - Script around one central dramatic promise, not a bag of techniques.
 - Study the ICP's full emotional world, including loss, pride, fear, grievance, aspiration and perceived antagonists. Use perspective-faithful language; do not treat unverified accusations as established facts.
 - Ground the story with plausible, specific actions, objects, people, places and cultural references. Do not force names or references into every line.
+- **Instagram clarity:** default to familiar words and connected speech that a distracted first-time listener understands immediately. Preserve connective language; short fragments are not automatically clearer. Use `STUDIO/writing/narration.md` and repair actual comprehension problems before delivery.
 - Natural dialogue can include fragments, associative leaps, silence, juxtaposition and abrupt edits; use them only if they serve the point and remain understandable.
 - SHOW when an action conveys the meaning better; TELL when narration clearly saves time or adds comprehension.
 - Audit the *whole* script for one coherent throughline. Cut even a great line if it doesn't belong.

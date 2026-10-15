@@ -44,3 +44,6 @@
 
 ## V3 writing correction — 2026-10-14
 Current candidate is `script.md` v3, superseding the V2 opening/emphasis. The audience job and commercial hypothesis above remain provisional. The revision replaces explanation-heavy narration with the booking obstacle, invented food image, concrete birthday inquiry and actual dinner behavior. It ends with one question about firsthand experience. `editorial-review.md` now maps the active craft rules to passages and edits, with VO/visual checks explicitly pending. Estimated 1:55–2:20; 270 spoken words; founder review still required.
+
+## V4 — Instagram clarity correction, 2026-10-14
+Current candidate is `script.md` v4. Founder rejected choppy narration; the new draft uses connected speech and explicit causal links, following all five modules in `STUDIO/writing/`. Audience promise remains recognizing manipulated credibility. Current narration length and limitations are recorded in the script/editorial review; earlier version estimates are historical. Founder approval remains pending.

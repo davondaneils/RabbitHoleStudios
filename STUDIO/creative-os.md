@@ -2,6 +2,10 @@
 
 **This is a palette, not a checklist.** The original 50-section guide lives in `ARCHIVE/creative-os-v1.md`, but this shorter file is the active writing standard.
 
+## Required craft modules
+
+Use [the writing library](writing/README.md) and its task-routing table. Full scripts and substantive rewrites require audience, hooks, story, narration and editing modules. The modules bring selected deeper craft guidance into active use; the archive remains historical. For Instagram, connected, instantly understandable narration takes priority over punchy fragmentation.
+
 ## Audience value before the spine (mandatory)
 
 For each episode, first read the relevant account brief and `STUDIO/audience-research.md`, then complete the [Audience Value Gate and editorial stages](editorial-workflow.md). Establish **which specific viewer desire this story serves, the entertaining/emotional payoff, the useful insight or recognition, and any unvalidated buyer connection**. The psychology/insight should emerge from documented events—not be bolted on as a moral in the last sentence. After that, apply the writing craft palette below. A great standalone oddity is not necessarily a great episode for the chosen account.
