@@ -17,3 +17,6 @@ Record only the highest-impact problems using **passage → listener problem →
 Finish with the five questions: why stop; what happens and why care; what changes; does the ending repay the opening; what can be removed without making understanding worse? Revise actual weaknesses before presenting the candidate. Do not ask the founder to approve a framework instead of reading the finished script.
 
 Preserve earlier candidates. Mark the new version as unapproved. Measured comprehension, retention and commercial results require evidence outside this editorial process.
+
+## Separate outcomes and independent critique
+Use [testing.md](testing.md) for the evidence that writing review alone cannot supply. Critique comprehension, forward interest, emotional reward and practical insight separately. An independent reviewer should identify exact confusions and weak transitions; disclose whether the reviewer is a human or a model. Apply warranted repairs rather than averaging preferences. Track a passage's role, not a quota of techniques. Rewatch spikes may reflect confusion; completion alone may reward an empty short. Keep scientific findings, platform metric definitions and our editorial/testing hypotheses distinct using [the evidence review](../../RESEARCH/short-form-scriptwriting-2026-10-14.md).

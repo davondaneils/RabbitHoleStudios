@@ -16,3 +16,8 @@ Example of repair: “A seventieth birthday. Nine people. Someone was asking fou
 Dialogue is optional. When justified, give characters clear goals and distinct behavior; do not use them solely to recite exposition. Never invent dialogue for real people and present it as documented.
 
 Text pass: identify ambiguous references, missing links and unnatural breath units. Actual delivery pass: listen to the chosen voice and check pace, emphasis and comprehension. Never claim that a silent review constitutes a spoken test.
+
+## Clarity across sound and visuals
+Use the [multimedia/coherence evidence](../../RESEARCH/short-form-scriptwriting-2026-10-14.md) as a reason to test competition among speech, music, captions and images, not a blanket music ban. Audio alone should carry the basic who/what/why; visuals can supply relevant reveals without forcing the narrator to describe every pixel. Protect essential meaning and source qualifications when cutting. Actual one-listen understanding is tested through [testing.md](testing.md), not inferred from short sentences, readability scores or a model's approval.
+
+Direct digital-reading research ([Berger, Moe & Schweidel, 2023](https://journals.sagepub.com/doi/full/10.1177/00222429231152880)) links processing ease with holding attention; its setting still differs from spoken Reels. Use familiar concrete wording and simple relationships, then test actual listening. The finding does not justify reducing every sentence to a fragment or treating a readability number as audience validation.

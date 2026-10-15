@@ -18,6 +18,7 @@ Account / format / first or second execution / status:
 **One primary audience emotion/recognition:**
 **ICP and desired experience:**
 **Hook image and optional first spoken line:**
+**Alternative hook premises / chosen working hypothesis:**
 **Situation / who wants what / actual constraint:**
 **2–3 substantially different narrative angles considered:**
 **Complete beginning–middle–end causal treatment:**
@@ -29,6 +30,10 @@ Account / format / first or second execution / status:
 **Reason for chosen complete episode length (not a preset quota):**
 **Full script path and version:**
 **Separate editorial review notes / three highest-leverage corrections:**
+**Reviewer identity (writer / independent model / human) and repairs actually applied:**
+**Evidence consulted and limits of applying it to this account:**
+**Voice/listener/visual checks actually performed vs pending:**
+**Performance hypothesis / metrics and definitions to inspect after publication approval:**
 **Factual accuracy / source-confidence limitations:**
 **Founder script approval date and status (not automatic):**
 **Visual style, reusable assets and essential shots (only after script approval):**

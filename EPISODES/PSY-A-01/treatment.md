@@ -75,3 +75,16 @@ Supersedes the V2 narration plan. **SCRIPT_CANDIDATE; not founder-approved.**
 
 ## V4 — connected narration, 2026-10-14
 Current plan supersedes V3's fragmented opening: lead with the actual historical result, explain the fabricated listing/reviews and ensuing calls in order, connect asserted scarcity to apparent popularity, then show the one-night meal and planted customers. Preserve mixed reactions and the free dinner. Finish by explaining why reviews/rank can share an origin and offer one source check. Viewer goal and hypothetical commercial continuation remain unchanged. Full script is a candidate, not approved.
+
+## V5 — research-informed complete treatment, 2026-10-14
+**CANDIDATE; supersedes V4 narration plan.**
+
+**Audience promise:** Identify when apparently separate endorsements originate in one manufactured reputation. Working viewer wants to avoid being fooled; actual audience/buyer fit is unvalidated.
+
+**Approaches considered:** (A) impossible ranking-before-service result; (B) actual garden dinner then rewind; (C) viewer checking reviews/rank. Choose A provisionally: clear contradiction for a stranger, then one question about review origins. B needs a time shift; C needs more concrete orientation. No measured winner.
+
+**Complete causal outline:** #1 shed before meals → website/photos establish a fake restaurant → accepted listing and friends' reviews → ranking climbs and genuine inquiries arrive → organizer turns callers away → real one-night dinner adds actors to the room → mixed responses/free meal → distinguish the review-derived rank and organizer's scarcity from independent evidence → ask about recommendation origins.
+
+**Rewards along the way:** Fabricated presentation explains initial plausibility; real birthday inquiry shows consequences; actual dinner answers what happened when people visited; source-dependence synthesis gives a practical account payoff. This progression is an editorial application of curiosity/coherence evidence, not a neuroscience formula.
+
+**Scope:** Full 203-word episode, estimated 1:25–1:50 including pauses until measured. Conceptual visual inventory in `script.md`; no detailed production planning or asset generation. Story closure remains complete. Actual narrator, listener and visual checks await their inputs and approval.

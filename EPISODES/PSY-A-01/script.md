@@ -1,36 +1,36 @@
-# PSY-A-01 — The Setup: “The Restaurant That Existed Only in Reviews”
-**Status:** SCRIPT_CANDIDATE v4 · 2026-10-14 · **NOT APPROVED**.
-**Revision basis:** Founder requested simple, connected Instagram narration and a stronger system for applying the writing guidance. Builds on [feedback #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1). Previous candidate: `script-v3.md`.
-**Viewer promise:** Understand how checking reviews and rankings can still lead you back to the same fabricated reputation.
-**Format:** Complete episode, off-screen narrator. Runtime is an estimate only; no recorded voice test completed.
+# PSY-A-01 — The Setup: “Where Did the Praise Come From?”
+**Status:** SCRIPT_CANDIDATE v5 · 2026-10-14 · **NOT APPROVED**.
+**Revision basis:** Founder requested deep research, an updated writing process and a rewrite. Builds on [feedback #1](https://github.com/davondaneils/RabbitHoleStudios/issues/1). Prior candidate preserved as `script-v4.md`.
+**Viewer promise:** Recognize when several impressive recommendations repeat the same manufactured claim.
+**Research:** `RESEARCH/short-form-scriptwriting-2026-10-14.md` informs the process; it does not validate this script's retention or prove a psychological cause in the Shed case.
+**Format:** Complete off-screen-narrated episode; conceptual visual support only. Actual voice timing remains unmeasured.
 
 ## Full narration (candidate)
-A man got his garden shed ranked as London's number-one restaurant on TripAdvisor. If you checked the reviews, it looked like a great place to eat.
+London's number-one restaurant on TripAdvisor was a garden shed that hadn't served a single meal. The reviews made it look real, but where had they come from?
 
-In 2017, writer Oobah Butler created a website for a restaurant he called The Shed at Dulwich. He photographed fake dishes to make it look convincing. One photo showed an egg resting on his foot, with the foot hidden by the crop.
+In 2017, writer Oobah Butler built a website with fake food photos for a restaurant called The Shed at Dulwich. Once TripAdvisor accepted the listing, he got friends to write glowing reviews.
 
-Once TripAdvisor accepted the listing, he got friends to post fake reviews. Those reviews helped push the restaurant up the rankings, and strangers started calling to book tables.
+Those reviews helped the listing climb the rankings, and real people started calling to book tables. Someone even wanted to book a seventieth-birthday dinner for nine people.
 
-One inquiry was for a seventieth-birthday dinner for nine people. Oobah kept telling callers he was fully booked, even though he wasn't running a restaurant.
+Oobah kept telling callers he was fully booked, even though the shed still hadn't served a meal.
 
-From the outside, that could look like a popular place that was hard to get into. The reviews and the ranking seemed to back it up, but the fake reviews had helped create that ranking in the first place.
+After reaching number one, he opened for one night. Real guests ate dressed-up ready meals in his garden, while actors at nearby tables made a show of enjoying the food.
 
-Eventually, The Shed reached number one. Oobah then decided to open it for one night, serving dressed-up ready meals in his garden.
+The dinner was free, and reactions were mixed. Butler said one couple seemed unimpressed, while another group asked to return.
 
-He also brought in actors to sit among the guests and act as though they were enjoying the food. Even when people arrived, some of the customers around them were part of the setup.
+The reviews and ranking looked like two reasons to trust the restaurant. But the fake reviews had helped create that ranking. Oobah was also the person claiming it was fully booked.
 
-According to Butler, one couple seemed unimpressed, while another table asked about coming back. The dinner was free, so this doesn't show what anyone would have paid, or exactly why they reacted that way.
+When several recommendations look convincing, check whether they come from separate sources or lead back to the same claim.
 
-That's the useful part of this story when you're deciding who to trust. A glowing review and a high ranking can look like separate reasons to believe something, even when one helped produce the other.
+## Story, review and delivery notes — candidate
+- **Complete beat sheet:** Impossible ranking-before-service result → question about the reviews → fabricated website/listing/reviews → genuine booking demand → false unavailability → one-night dinner with actors and real meals → mixed reactions/free dinner → dependence among apparent trust signals → source-origin question.
+- **Audience job:** A viewer who wants to avoid being fooled sees why a review and its resulting ranking are not independent checks. Genuine downstream interest is distinguished from fabricated inputs. No diagnosis of individual diners or universal social-proof claim.
+- **Research application:** Clear curiosity plus immediate orientation; connected events; successive discoveries; one explicit practical payoff. These are editorial choices informed by evidence from other settings, not proven optimal organic Instagram techniques.
+- **Independent text edit:** A separate model reviewed the actual draft. Applied its two substantive fixes: website before listing, and checking recommendation origins rather than trusting claims of firsthand experience. Full review in `editorial-review.md`.
+- **Conceptual visuals / asset needs:** Simple ranking/shed contrast, fabricated website/review illustration, phone/birthday inquiry, refusal cue, garden meal with distinct actors and genuine guests, final review-to-rank connection. No detailed storyboard, image generation or publication authorized. Label reconstructions and use original media rather than alleged archival screenshots.
+- **Length:** Word-count/runtime estimate below is a planning aid; full VO listening and timing remain pending. The dinner outcome earns the complete story rather than an opening fragment.
+- **Optional cut:** Remove the birthday sentence if a real delivery test finds it slows the middle; doing so loses one concrete human stake. Preserve mixed reactions, the free meal and the source-origin takeaway.
+- **Commercial continuation:** Further sourced cases and interactive credibility practice remain possible unvalidated offers. No available product, buyer demand or conversion is claimed.
+- **Limits:** Separate sources can still be wrong; tracing recommendations is a useful starting question, not a guaranteed detection method. Actual narrator/listener, phone-visual and audience-performance checks remain pending. Founder approval is required before production.
 
-Before you rely on a recommendation, check whether it comes from someone with firsthand experience who isn't connected to the person selling it.
-
-## Story and delivery notes — candidate
-- **Complete beat sheet:** Surprising historical result → invented restaurant and photos → fake reviews raise ranking → genuine inquiries and refusals → apparent popularity → real dinner with planted customers → mixed reactions and free-meal qualification → practical source check.
-- **Audience purpose:** Helps a viewer who wants to avoid being fooled recognize dependent evidence. It does not promise immunity to deception or claim all actual callers had the same thoughts.
-- **Narration:** Paragraphs contain connected speech rather than isolated captions. No invented dialogue, unexplained time jumps or instruction to imagine another person's emotions. Keep a conversational pace; actual delivery still needs listening.
-- **Visual concepts / assets:** Shed, simple illustrated listing, food-photo reveal, booking phone, garden dinner, distinct actors and genuine guests. Concept inventory only; no detailed storyboard or asset generation authorized.
-- **Length:** Complete story requires the ranking and dinner outcomes. 308 spoken words; estimate 2:10–2:35 including pauses; measure a recorded take before locking duration. No forced 60-second target.
-- **Optional cut:** Remove the egg-photo sentence if actual delivery needs trimming; retain the independent-evidence explanation and mixed-response/free-dinner caveats.
-- **Account continuation:** Further sourced cases and credibility-checking practice could deepen this skill. Product availability, audience demand and buyer conversion remain unvalidated; no sales pitch is included.
-- **Limits:** The closing check is a useful question, not proof that an independent account is accurate. Founder review, actual VO, visual checks and publication approval remain pending.
+**Planning length:** 203 spoken words; approximately 1:25–1:50 including pauses, to be measured in a real take.

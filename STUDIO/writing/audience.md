@@ -12,3 +12,6 @@ The story must reward attention beyond being unusual. Define the insight before 
 For commercial fit, distinguish entertainment viewers from buyers. State what further learning or practice could naturally help this audience, and what evidence is missing. Do not insert a sales pitch for an unavailable product. Return interest should arise from a useful, satisfying episode—not an artificially withheld answer.
 
 Editorial question: if this were posted to an unrelated account, what specific audience purpose would be lost? If the answer is only the topic label, repair the premise.
+
+## Evidence-informed decision
+See the [research review](../../RESEARCH/short-form-scriptwriting-2026-10-14.md), especially the sharing evidence and its transfer limits. A reason to watch, a reason to share and a reason to pay are separate hypotheses. Choose a concrete viewer concern and one usable reward before writing. Surprise and amused recognition may suit a deception case; do not manufacture anger or humiliation because emotional arousal sometimes predicts sharing. A satisfied viewer is not automatically a qualified buyer.

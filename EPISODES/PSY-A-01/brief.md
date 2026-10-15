@@ -47,3 +47,6 @@ Current candidate is `script.md` v3, superseding the V2 opening/emphasis. The au
 
 ## V4 — Instagram clarity correction, 2026-10-14
 Current candidate is `script.md` v4. Founder rejected choppy narration; the new draft uses connected speech and explicit causal links, following all five modules in `STUDIO/writing/`. Audience promise remains recognizing manipulated credibility. Current narration length and limitations are recorded in the script/editorial review; earlier version estimates are historical. Founder approval remains pending.
+
+## V5 — research-informed revision, 2026-10-14
+Current candidate is `script.md` v5, with 203 spoken words and a complete dinner outcome. The specific reward is recognizing dependent credibility signals; the commercial learning/practice continuation remains a hypothesis. The process now consults [primary-source evidence](../../RESEARCH/short-form-scriptwriting-2026-10-14.md) and [staged testing guidance](../../STUDIO/writing/testing.md). Separate model critique found and repaired chronology and advice errors. Actual VO, unfamiliar-listener and visual testing are pending. Founder approval is still required.
